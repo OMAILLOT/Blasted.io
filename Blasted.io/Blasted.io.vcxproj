@@ -78,15 +78,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\orian\Documents\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\orian\Documents\SFML-2.5.1\lib</ReferencePath>
-    <PublicIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
+    <IncludePath>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</ReferencePath>
+    <PublicIncludeDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\orian\Documents\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\orian\Documents\SFML-2.5.1\lib</ReferencePath>
-    <PublicIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
+    <IncludePath>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</ReferencePath>
+    <PublicIncludeDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -126,7 +126,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -144,7 +144,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
