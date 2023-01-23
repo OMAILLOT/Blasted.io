@@ -1,24 +1,94 @@
-#include <SFML/Graphics.hpp>
+#include "Main.h"
+
+//Variable global
+RenderWindow window;
+Input input;
+Font font;
+CircleShape shape;
+
+int posX, posY = 1;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+	//Window
+	window.create(VideoMode(1280, 720, 32), "Blasted.io");
+	window.setVerticalSyncEnabled(true);
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	ContextSettings options;
+	options.antialiasingLevel = 8;
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+	//Other
+	LoadFont();
 
-    return 0;
+	shape.setRadius(100.f);
+	shape.setFillColor(Color::Green);
+
+	while (window.isOpen())
+	{
+		Event event;
+
+		while (window.pollEvent(event))
+		{
+			input.InputHandler(event, window);
+		}
+
+		CheckBtn();
+		shape.setPosition(posX, posY);
+
+		window.clear();
+		window.draw(shape);
+		window.display();
+	}
+
+	return 0;
+}
+
+
+void LoadFont()
+{
+	if (!font.loadFromFile("res/poppins.ttf")) {
+		cout << "Erreur de chargement de font" << endl;
+	}
+}
+
+void SetText(Text& txt, String str, int size)
+{
+	txt.setFont(font);
+	txt.setString(str);
+	txt.setCharacterSize(size);
+}
+
+void CheckBtn() {
+	if (input.GetButton().left == true)
+	{
+		posX -= 10;
+
+		if (posX < 0)
+			posX = 0;
+	}
+	if (input.GetButton().right == true)
+	{
+		posX += 10;
+
+		if (posX > WIN_WIDTH - shape.getRadius() * 2)
+			posX = WIN_WIDTH - shape.getRadius() * 2;
+	}
+	if (input.GetButton().up == true)
+	{
+		posY -= 10;
+
+		if (posY < 0)
+			posY = 0;
+
+	}
+	if (input.GetButton().down == true)
+	{
+		posY += 10;
+
+		if (posY > WIN_HEIGHT - shape.getRadius() * 2)
+			posY = WIN_HEIGHT - shape.getRadius() * 2;
+	}
+	if (input.GetButton().attack == true)
+	{
+	}
 }
