@@ -2,6 +2,7 @@
 
 //Variable global
 RenderWindow window;
+View view;
 Input input;
 Font font;
 CircleShape shape;
@@ -11,8 +12,12 @@ int posX, posY = 1;
 int main()
 {
 	//Window
-	window.create(VideoMode(1280, 720, 32), "Blasted.io");
+	window.create(VideoMode(WIN_WIDTH, WIN_HEIGHT, 32), "Blasted.io");
 	window.setVerticalSyncEnabled(true);
+
+	view.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
+	view.setCenter(shape.getPosition());
+
 
 	ContextSettings options;
 	options.antialiasingLevel = 8;
@@ -46,9 +51,9 @@ int main()
 
 void LoadFont()
 {
-	if (!font.loadFromFile("res/poppins.ttf")) {
-		cout << "Erreur de chargement de font" << endl;
-	}
+	//if (!font.loadFromFile("res/poppins.ttf")) {
+	//	cout << "Erreur de chargement de font" << endl;
+	//}
 }
 
 void SetText(Text& txt, String str, int size)
@@ -61,6 +66,8 @@ void SetText(Text& txt, String str, int size)
 void CheckBtn() {
 	if (input.GetButton().left == true)
 	{
+		view.move(-10, 0);
+
 		posX -= 10;
 
 		if (posX < 0)
@@ -68,6 +75,8 @@ void CheckBtn() {
 	}
 	if (input.GetButton().right == true)
 	{
+		view.move(10, 0);
+
 		posX += 10;
 
 		if (posX > WIN_WIDTH - shape.getRadius() * 2)
@@ -75,6 +84,8 @@ void CheckBtn() {
 	}
 	if (input.GetButton().up == true)
 	{
+		view.move(0, -10);
+
 		posY -= 10;
 
 		if (posY < 0)
@@ -83,6 +94,8 @@ void CheckBtn() {
 	}
 	if (input.GetButton().down == true)
 	{
+		view.move(0, 10);
+
 		posY += 10;
 
 		if (posY > WIN_HEIGHT - shape.getRadius() * 2)
