@@ -9,6 +9,9 @@ using namespace std;
 const int WIN_WIDTH = 1280;
 const int WIN_HEIGHT = 720;
 
+const int WORLD_WIDTH = 10000;
+const int WORLD_HEIGHT = 10000;
+
 int main();
 
 void LoadFont();

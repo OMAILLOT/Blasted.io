@@ -2,12 +2,13 @@
 
 //Variable global
 RenderWindow window;
-View view;
+View camera;
 Input input;
 Font font;
-CircleShape shape;
+CircleShape player;
+RectangleShape world,backgroundWorld;
 
-int posX, posY = 1;
+float posX, posY = 1;
 
 int main()
 {
@@ -15,9 +16,8 @@ int main()
 	window.create(VideoMode(WIN_WIDTH, WIN_HEIGHT, 32), "Blasted.io");
 	window.setVerticalSyncEnabled(true);
 
-	view.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
-	view.setCenter(shape.getPosition());
-
+	camera.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
+	camera.setCenter(player.getPosition());
 
 	ContextSettings options;
 	options.antialiasingLevel = 8;
@@ -25,8 +25,20 @@ int main()
 	//Other
 	LoadFont();
 
-	shape.setRadius(100.f);
-	shape.setFillColor(Color::Green);
+	player.setRadius(40.f);
+	player.setFillColor(Color::Green);
+
+	// Création de la carte carrée
+
+	world.setSize(Vector2f(WORLD_WIDTH, WORLD_HEIGHT));
+	world.setPosition(Vector2f(-WORLD_WIDTH / 2, -WORLD_HEIGHT / 2));
+	world.setFillColor(Color::White);
+	world.setOutlineColor(Color::Black);
+	world.setOutlineThickness(10.f);
+
+	backgroundWorld.setSize(Vector2f(WORLD_WIDTH * 2, WORLD_HEIGHT * 2));
+	backgroundWorld.setPosition(Vector2f(-WORLD_WIDTH * 2 / 2, -WORLD_HEIGHT * 2 / 2));
+	backgroundWorld.setFillColor(Color::Green);
 
 	while (window.isOpen())
 	{
@@ -38,10 +50,19 @@ int main()
 		}
 
 		CheckBtn();
-		shape.setPosition(posX, posY);
+
+		player.setPosition(posX, posY);
+
+		camera.setCenter(player.getPosition().x + player.getRadius(), player.getPosition().y + player.getRadius());
+		window.setView(camera);
+
 
 		window.clear();
-		window.draw(shape);
+
+		window.draw(backgroundWorld);
+		window.draw(world);
+		window.draw(player);
+
 		window.display();
 	}
 
@@ -66,40 +87,32 @@ void SetText(Text& txt, String str, int size)
 void CheckBtn() {
 	if (input.GetButton().left == true)
 	{
-		view.move(-10, 0);
-
 		posX -= 10;
 
-		if (posX < 0)
-			posX = 0;
+		if (posX < -WORLD_WIDTH / 2)
+			posX = -WORLD_WIDTH / 2;
 	}
 	if (input.GetButton().right == true)
 	{
-		view.move(10, 0);
-
 		posX += 10;
 
-		if (posX > WIN_WIDTH - shape.getRadius() * 2)
-			posX = WIN_WIDTH - shape.getRadius() * 2;
+		if (posX > (WORLD_WIDTH / 2) - player.getRadius() * 2)
+			posX = (WORLD_WIDTH / 2) - player.getRadius() * 2;
 	}
 	if (input.GetButton().up == true)
 	{
-		view.move(0, -10);
-
 		posY -= 10;
 
-		if (posY < 0)
-			posY = 0;
+		if (posY < -WORLD_HEIGHT / 2)
+			posY = -WORLD_HEIGHT / 2;
 
 	}
 	if (input.GetButton().down == true)
 	{
-		view.move(0, 10);
-
 		posY += 10;
 
-		if (posY > WIN_HEIGHT - shape.getRadius() * 2)
-			posY = WIN_HEIGHT - shape.getRadius() * 2;
+		if (posY > (WORLD_HEIGHT / 2) - player.getRadius() * 2)
+			posY = (WORLD_HEIGHT / 2) - player.getRadius() * 2;
 	}
 	if (input.GetButton().attack == true)
 	{
