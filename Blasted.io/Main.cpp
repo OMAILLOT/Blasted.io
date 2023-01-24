@@ -8,7 +8,7 @@ CircleShape shape;
 
 int posX, posY = 1;
 
-int main()
+int malin()
 {
 	//Window
 	window.create(VideoMode(1280, 720, 32), "Blasted.io");
