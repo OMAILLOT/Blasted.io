@@ -234,3 +234,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+Blasted.io/Blasted.io.vcxproj
+*.vcxproj
