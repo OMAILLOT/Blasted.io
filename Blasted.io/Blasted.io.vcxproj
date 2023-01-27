@@ -78,9 +78,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</ReferencePath>
-    <PublicIncludeDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</PublicIncludeDirectories>
+    <IncludePath>D:\Dev\Blasted.io\Blasted.io\include;$(IncludePath)</IncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);D:\Dev\Blasted.io\Blasted.io\lib</ReferencePath>
+    <PublicIncludeDirectories>D:\Dev\Blasted.io\Blasted.io\include</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -126,7 +126,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Dev\Blasted.io\Blasted.io\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
