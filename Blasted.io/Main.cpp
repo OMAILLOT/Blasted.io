@@ -26,6 +26,15 @@ int main()
 	LoadFont();
 
 
+	Texture texture;
+	if (!texture.loadFromFile("res/AllGridpng.png"))
+		return 1;
+
+	Sprite sprite;
+	sprite.setTexture(texture);
+	sprite.setPosition(0, 0);
+
+
 	while (window.isOpen())
 	{
 		Event event;
@@ -41,8 +50,18 @@ int main()
 		window.clear();
 
 		window.draw(backgroundWorld);
-		for (auto& square : world) window.draw(square);
-	
+
+
+		for (int i = 0; i < 100; i++)
+		{
+			for (int j = 0; j < 100; j++)
+			{
+				sprite.setPosition(i * sprite.getLocalBounds().width, j * sprite.getLocalBounds().height);
+				window.draw(sprite);
+			}
+		}
+
+
 		window.draw(player);
 
 		window.display();
@@ -77,32 +96,14 @@ void InitWorld()
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
 	backgroundWorld.setFillColor(darkGrey);
 
-	Vector2f centeredGridPosition(-(rows * squareSize / 2), -(columns * squareSize / 2));
-
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < columns; j++)
-		{
-			RectangleShape square;
-			square.setSize(Vector2f(squareSize, squareSize));
-			square.setPosition(i * squareSize, j * squareSize);
-			square.setFillColor(lightGrey);
-			square.setOutlineColor(grey);
-
-			square.setOutlineThickness(squareOutlineThickness);
-			square.move(centeredGridPosition);
-
-			world.push_back(square);
-		}
-	}
 }
 
 
 void LoadFont()
 {
-	//if (!font.loadFromFile("res/poppins.ttf")) {
-	//	cout << "Erreur de chargement de font" << endl;
-	//}
+	if (!font.loadFromFile("res/poppins.ttf")) {
+		cout << "Erreur de chargement de font" << endl;
+	}
 }
 
 void SetText(Text& txt, String str, int size)
@@ -117,30 +118,30 @@ void CheckInput() {
 	{
 		posX -= PLAYER_SPEED;
 
-		if (posX < -(rows * squareSize / 2))
-			posX = -(rows * squareSize / 2);
+		/*if (posX < -(rows * squareSize / 2))
+			posX = -(rows * squareSize / 2);*/
 	}
 	if (input.GetButton().right == true)
 	{
 		posX += PLAYER_SPEED;
 
-		if (posX > (rows * squareSize / 2) - player.getRadius() * 2)
-			posX = (rows * squareSize / 2) - player.getRadius() * 2;
+		/*if (posX > (rows * squareSize / 2) - player.getRadius() * 2)
+			posX = (rows * squareSize / 2) - player.getRadius() * 2;*/
 	}
 	if (input.GetButton().up == true)
 	{
 		posY -= PLAYER_SPEED;
 
-		if (posY < -(columns * squareSize / 2))
-			posY = -(columns * squareSize / 2);
+		/*if (posY < -(columns * squareSize / 2))
+			posY = -(columns * squareSize / 2);*/
 
 	}
 	if (input.GetButton().down == true)
 	{
 		posY += PLAYER_SPEED;
 
-		if (posY > (columns * squareSize / 2) - player.getRadius() * 2)
-			posY = (columns * squareSize / 2) - player.getRadius() * 2;
+		/*if (posY > (columns * squareSize / 2) - player.getRadius() * 2)
+			posY = (columns * squareSize / 2) - player.getRadius() * 2;*/
 	}
 	if (input.GetButton().attack == true)
 	{
