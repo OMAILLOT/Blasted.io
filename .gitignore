@@ -237,3 +237,7 @@ pip-log.txt
 
 Blasted.io/Blasted.io.vcxproj
 *.vcxproj
+Blasted.io/.vs/Blasted.io/v17/Browse.VC.opendb
+Blasted.io/.vs/Blasted.io/v17/Browse.VC.db-wal
+Blasted.io/.vs/Blasted.io/v17/Browse.VC.db-shm
+Blasted.io/.vs/Blasted.io/v17/Browse.VC.db

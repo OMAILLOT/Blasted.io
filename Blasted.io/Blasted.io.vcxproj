@@ -78,15 +78,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Dev\Blasted.io\Blasted.io\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\orian\Documents\SFML-2.5.1\include</IncludePath>
     <ReferencePath>$(VC_ReferencesPath_x64);D:\Dev\Blasted.io\Blasted.io\lib</ReferencePath>
-    <PublicIncludeDirectories>D:\Dev\Blasted.io\Blasted.io\include</PublicIncludeDirectories>
+    <PublicIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\orian\Documents\SFML-2.5.1\include</IncludePath>
     <ReferencePath>$(VC_ReferencesPath_x64);C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</ReferencePath>
-    <PublicIncludeDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\include</PublicIncludeDirectories>
+    <PublicIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -122,11 +122,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <AdditionalIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\Blasted.io\Blasted.io\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Dev\Blasted.io\Blasted.io\lib;C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -138,13 +140,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <AdditionalIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\gelin\Downloads\SFML-2.5.1-windows-vc15-64-bit\SFML-2.5.1\lib;C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
