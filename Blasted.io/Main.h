@@ -1,5 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <random>
+
+
 #include "input.h"
 
 using namespace sf;
@@ -28,6 +31,10 @@ const Color blue(0, 179, 223);
 
 
 int main();
+void HandleMenuInput(sf::Event& event);
+void DrawMenu();
+void DrawWorld();
+void InitMenu();
 void PlayerMovement();
 void LerpCamera();
 void InitWindow();
@@ -38,3 +45,4 @@ void CheckInput();
 void SetText(Text& txt, String str, int size);
 Vector2f lerp(Vector2f start, Vector2f end, float percent);
 Vector2f normalize(Vector2f vector);
+void debug(const string& message);

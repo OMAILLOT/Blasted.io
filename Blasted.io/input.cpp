@@ -9,7 +9,7 @@ Input::Button Input::GetButton(void) const
 	return btn;
 }
 
-void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
+void Input::InputHandler(Event& event, RenderWindow& window)
 {
 	if (event.type == Event::Closed) window.close();
 
@@ -28,6 +28,9 @@ void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
 			break;
 		case Keyboard::Up:
 			btn.up = true;
+			break;
+		case Keyboard::Escape:
+			btn.exit = true;
 			break;
 		default:
 			break;
@@ -48,6 +51,9 @@ void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
 			break;
 		case Keyboard::Up:
 			btn.up = false;
+			break;
+		case Keyboard::Escape:
+			btn.exit = false;
 			break;
 		default:
 			break;

@@ -5,14 +5,14 @@ using namespace std;
 
 class Input
 {
-	struct Button { bool left, right, up, down, attack; };
+	struct Button { bool left, right, up, down, attack, exit; };
 
 public:
 	Input();
 
 	Button GetButton(void) const;
 
-	void InputHandler(sf::Event& event, sf::RenderWindow& window);
+	void InputHandler(Event& event, RenderWindow& window);
 
 
 private:
