@@ -31,6 +31,10 @@ const Color blue(0, 179, 223);
 
 
 int main();
+void HandleMenuInput(sf::Event& event);
+void DrawMenu();
+void DrawWorld();
+void InitMenu();
 void PlayerMovement();
 void LerpCamera();
 void InitWindow();
