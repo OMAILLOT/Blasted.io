@@ -1,5 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <random>
+
+
 #include "input.h"
 
 using namespace sf;
@@ -38,3 +41,4 @@ void CheckInput();
 void SetText(Text& txt, String str, int size);
 Vector2f lerp(Vector2f start, Vector2f end, float percent);
 Vector2f normalize(Vector2f vector);
+void debug(const string& message);
