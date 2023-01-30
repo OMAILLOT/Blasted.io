@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Structs">
+      <UniqueIdentifier>{a0877adc-b5c8-4eb8-92b3-a8852df07fc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Structs">
+      <UniqueIdentifier>{f9a3ad0d-8359-4df1-a35f-f6acf77f6a44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -20,6 +26,12 @@
     </ClCompile>
     <ClCompile Include="input.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Colors.cpp">
+      <Filter>Fichiers sources\Structs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,5 +41,16 @@
     <ClInclude Include="input.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Blasted.io.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -1,16 +1,20 @@
 #include "Main.h"
+#include <iostream>
+#include "input.h"
+
+
 
 //Variable global
 RenderWindow window;
 View camera;
 Input input;
 Font font;
-CircleShape player;
 RectangleShape backgroundWorld;
 vector<RectangleShape> world;
 Sprite WorldCell;
 Texture CellTexture;
-
+Colors colors;
+Player* player;
 
 //Menu
 Text titleText;
@@ -26,13 +30,17 @@ enum class GameState { Menu, Game, Setting };
 
 GameState state = GameState::Menu;
 
+
+
 int main()
 {
+	//colors = Colors();
+
 	//Window
 	InitWindow();
 
 	//Player
-	InitPlayer();
+	player = new Player(input);
 
 	//Map
 	InitWorld();
@@ -63,13 +71,13 @@ int main()
 		{
 			//GameLoop
 
-			CheckInput();
+			player->CheckInput();
 
-			PlayerMovement();
+			player->PlayerMovement();
 
 			LerpCamera();
 
-			window.draw(player);
+			window.draw(player->playerRenderer);
 		}
 		else if (state == GameState::Setting)
 		{
@@ -103,7 +111,7 @@ void HandleMenuInput(sf::Event& event)
 				if (selectedItem < 2)
 					selectedItem++;
 			}
-
+			
 		}
 	}
 	else
@@ -125,13 +133,13 @@ void HandleMenuInput(sf::Event& event)
 
 				int X = tempX(gen);
 
-				int minY = ((WorldCell.getLocalBounds().height * columns) - player.getRadius()) / -2;
-				int maxY = ((WorldCell.getLocalBounds().height * columns) - player.getRadius()) / 2;
+				int minY = ((WorldCell.getLocalBounds().height * columns) - player->playerRenderer.getRadius()) / -2;
+				int maxY = ((WorldCell.getLocalBounds().height * columns) - player->playerRenderer.getRadius()) / 2;
 				uniform_int_distribution<int> tempY(minY, maxY);
 
 				int Y = tempY(gen);
 
-				player.setPosition(X, Y);
+				player->playerRenderer.setPosition(X, Y);
 
 				state = GameState::Game;
 			}
@@ -149,9 +157,6 @@ void HandleMenuInput(sf::Event& event)
 
 void DrawMenu()
 {
-	camera.setCenter(-WIN_WIDTH / 2, -WIN_HEIGHT / 2);
-	window.setView(camera);
-
 	window.draw(titleText);
 	window.draw(playText);
 	window.draw(settingText);
@@ -182,7 +187,7 @@ void InitWindow()
 	window.setVerticalSyncEnabled(true);
 
 	camera.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
-	camera.setCenter(player.getPosition());
+	camera.setCenter(player->playerRenderer.getPosition());
 
 	ContextSettings options;
 	options.antialiasingLevel = 8;
@@ -197,7 +202,7 @@ void InitWorld()
 
 	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(darkGrey);
+	backgroundWorld.setFillColor(colors.darkGrey);
 }
 void InitMenu()
 {
@@ -221,31 +226,18 @@ void InitMenu()
 	quitText.setString("QUIT");
 	quitText.setPosition(Vector2f((WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
 }
-void InitPlayer()
-{
-	player.setRadius(25.f);
-	player.setFillColor(blue);
-}
 
 #pragma endregion
 #pragma region Player
 
-void PlayerMovement()
-{
-	playerSpeed = normalize(playerSpeed);
 
-	playerSpeed.x *= PLAYER_SPEED;
-	playerSpeed.y *= PLAYER_SPEED;
-
-	player.move(playerSpeed);
-}
 void LerpCamera()
 {
 	Vector2f cameraPos = camera.getCenter();
-	Vector2f playerPos = player.getPosition();
+	Vector2f playerPos = player->playerRenderer.getPosition();
 
-	playerPos.x += player.getRadius();
-	playerPos.y += player.getRadius();
+	playerPos.x += player->playerRenderer.getRadius();
+	playerPos.y += player->playerRenderer.getRadius();
 
 
 	cameraPos = Vector2f(lerp(cameraPos, playerPos, 0.05f));
@@ -253,13 +245,7 @@ void LerpCamera()
 	camera.setCenter(cameraPos);
 	window.setView(camera);
 }
-Vector2f normalize(Vector2f vector) {
-	float length = sqrt((vector.x * vector.x) + (vector.y * vector.y));
-	if (length != 0)
-		return Vector2f(vector.x / length, vector.y / length);
-	else
-		return vector;
-}
+
 Vector2f lerp(Vector2f start, Vector2f end, float percent)
 {
 	return start + (end - start) * percent;
@@ -271,7 +257,7 @@ Vector2f lerp(Vector2f start, Vector2f end, float percent)
 void LoadFont()
 {
 	if (!font.loadFromFile("res/poppins.ttf")) {
-		cout << "Erreur de chargement de font" << endl;
+		std::cout << "Erreur de chargement de font" << endl;
 	}
 }
 
@@ -289,45 +275,5 @@ void DrawWorld()
 		}
 	}
 }
-void CheckInput() {
-	if (input.GetButton().left == true)
-	{
-		playerSpeed.x = -PLAYER_SPEED;
 
-		if (player.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
-			playerSpeed.x = 0;
-	}
-	if (input.GetButton().right == true)
-	{
-		playerSpeed.x = PLAYER_SPEED;
-
-		if (player.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - player.getRadius() * 2)
-			playerSpeed.x = 0;
-	}
-	if (input.GetButton().up == true)
-	{
-		playerSpeed.y = -PLAYER_SPEED;
-
-		if (player.getPosition().y < -(columns / 2 * WorldCell.getLocalBounds().height))
-			playerSpeed.y = 0;
-
-	}
-	if (input.GetButton().down == true)
-	{
-		playerSpeed.y = PLAYER_SPEED;
-
-		if (player.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - player.getRadius() * 2)
-			playerSpeed.y = 0;
-	}
-	if (input.GetButton().attack == true)
-	{
-	}
-	if (input.GetButton().exit == true)
-	{
-		state = GameState::Menu;
-	}
-
-	if (input.GetButton().left == false && input.GetButton().right == false) playerSpeed.x = 0;
-	if (input.GetButton().up == false && input.GetButton().down == false) playerSpeed.y = 0;
-}
 
