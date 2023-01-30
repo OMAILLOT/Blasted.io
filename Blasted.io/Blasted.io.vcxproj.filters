@@ -33,6 +33,9 @@
     <ClCompile Include="Colors.cpp">
       <Filter>Fichiers sources\Structs</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="Colors.h">
       <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

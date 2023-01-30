@@ -1,6 +1,7 @@
 #include "Main.h"
-#include <iostream>
 #include "input.h"
+#include "Map.h"
+#include <iostream>
 
 
 
@@ -9,10 +10,9 @@ RenderWindow window;
 View camera;
 Input input;
 Font font;
-RectangleShape backgroundWorld;
+
 vector<RectangleShape> world;
-Sprite WorldCell;
-Texture CellTexture;
+
 Colors colors;
 Player* player;
 
@@ -274,6 +274,11 @@ void DrawWorld()
 			window.draw(WorldCell);
 		}
 	}
+}
+
+void InitWor \ ld()
+{
+	return void InitWor \();
 }
 
 
