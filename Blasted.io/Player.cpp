@@ -1,10 +1,9 @@
 #include "Player.h"
-#include "input.h"
 
 
 
-Player::Player(Input input_) {
-	input = input_;
+Player::Player() {
+	playerInput = new Input();
 	playerRenderer.setRadius(25.f);
 	playerRenderer.setFillColor(  Color::Blue);
 }
@@ -31,21 +30,21 @@ Vector2f Player::normalize(Vector2f vector) {
 }
 
 void Player::CheckInput() {
-	if (input.GetButton().left == true)
+	if (playerInput->GetButton().left == true)
 	{
 		playerSpeed.x = -PLAYER_SPEED;
 
 		if (playerRenderer.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
 			playerSpeed.x = 0;
 	}
-	if (input.GetButton().right == true)
+	if (playerInput->GetButton().right == true)
 	{
 		playerSpeed.x = PLAYER_SPEED;
 
 		if (playerRenderer.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - playerRenderer.getRadius() * 2)
 			playerSpeed.x = 0;
 	}
-	if (input.GetButton().up == true)
+	if (playerInput->GetButton().up == true)
 	{
 		playerSpeed.y = -PLAYER_SPEED;
 
@@ -53,23 +52,23 @@ void Player::CheckInput() {
 			playerSpeed.y = 0;
 
 	}
-	if (input.GetButton().down == true)
+	if (playerInput->GetButton().down == true)
 	{
 		playerSpeed.y = PLAYER_SPEED;
 
 		if (playerRenderer.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - playerRenderer.getRadius() * 2)
 			playerSpeed.y = 0;
 	}
-	if (input.GetButton().attack == true)
+	if (playerInput->GetButton().attack == true)
 	{
 	}
-	if (input.GetButton().exit == true)
+	if (playerInput->GetButton().exit == true)
 	{
 		state = GameState::Menu;
 	}
 
-	if (input.GetButton().left == false && input.GetButton().right == false) playerSpeed.x = 0;
-	if (input.GetButton().up == false && input.GetButton().down == false) playerSpeed.y = 0;
+	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
+	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
 }
 
 

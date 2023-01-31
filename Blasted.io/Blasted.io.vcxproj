@@ -78,9 +78,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\orian\Documents\SFML-2.5.1\include</IncludePath>
-    <ReferencePath>$(VC_ReferencesPath_x64);D:\Dev\Blasted.io\Blasted.io\lib</ReferencePath>
-    <PublicIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
+    <IncludePath>O:\document\SFML-2.5.1\include</IncludePath>
+    <ReferencePath>$(VC_ReferencesPath_x64);D:\Dev\Blasted.io\Blasted.io\lib;O:\document\SFML-2.5.1\lib</ReferencePath>
+    <PublicIncludeDirectories>O:\document\SFML-2.5.1\include</PublicIncludeDirectories>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -123,13 +124,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <SuppressStartupBanner>false</SuppressStartupBanner>
-      <AdditionalIncludeDirectories>C:\Users\orian\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>O:\document\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\Blasted.io\Blasted.io\lib;C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Dev\Blasted.io\Blasted.io\lib;C:\Users\orian\Documents\SFML-2.5.1\lib;O:\document\SFML-2.5.1\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-main-d.lib</AdditionalDependencies>
+      <OutputFile> </OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

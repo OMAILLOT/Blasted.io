@@ -1,34 +1,6 @@
 #include "Main.h"
-#include "input.h"
 #include "Map.h"
 #include <iostream>
-
-
-
-//Variable global
-RenderWindow window;
-View camera;
-Input input;
-Font font;
-
-vector<RectangleShape> world;
-
-Colors colors;
-Player* player;
-
-//Menu
-Text titleText;
-Text playText;
-Text settingText;
-Text quitText;
-
-int selectedItem = 0;
-bool startGameKeyPressed = false;
-
-
-enum class GameState { Menu, Game, Setting };
-
-GameState state = GameState::Menu;
 
 
 
@@ -36,14 +8,16 @@ int main()
 {
 	//colors = Colors();
 
+	//Player
+	currentMap = new Map();
+	player = new Player();
+
+	//Map
 	//Window
 	InitWindow();
 
-	//Player
-	player = new Player(input);
 
-	//Map
-	InitWorld();
+	currentMap->InitWorld();
 
 	//Other
 	LoadFont();
@@ -54,11 +28,11 @@ int main()
 	while (window.isOpen())
 	{
 		Event event;
-		while (window.pollEvent(event)) input.InputHandler(event, window);
+		while (window.pollEvent(event)) player->playerInput->InputHandler(event, window);
 
 		window.clear();
 
-		DrawWorld();
+		currentMap->DrawWorld();
 
 		if (state == GameState::Menu)
 		{
@@ -192,18 +166,7 @@ void InitWindow()
 	ContextSettings options;
 	options.antialiasingLevel = 8;
 }
-void InitWorld()
-{
-	if (!CellTexture.loadFromFile("res/AllGridpng.png"))
-		return;
 
-	WorldCell.setTexture(CellTexture);
-	WorldCell.setPosition(0, 0);
-
-	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
-	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(colors.darkGrey);
-}
 void InitMenu()
 {
 	titleText.setFont(font);
@@ -262,23 +225,3 @@ void LoadFont()
 }
 
 #pragma endregion
-
-void DrawWorld()
-{
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < columns; j++)
-		{
-			WorldCell.setPosition(i * WorldCell.getLocalBounds().width, j * WorldCell.getLocalBounds().height);
-			WorldCell.move(-rows / 2 * WorldCell.getLocalBounds().width, -columns / 2 * WorldCell.getLocalBounds().height);
-			window.draw(WorldCell);
-		}
-	}
-}
-
-void InitWor \ ld()
-{
-	return void InitWor \();
-}
-
-

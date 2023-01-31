@@ -1,9 +1,8 @@
 #include "Map.h"
+#include "Main.h"
 #include <SFML/Graphics.hpp>
 
-Sprite WorldCell;
-Texture CellTexture;
-RectangleShape backgroundWorld;
+
 
 
 void Map::DrawWorld()
@@ -19,6 +18,7 @@ void Map::DrawWorld()
 	}
 }
 
+
 void Map::InitWorld()
 {
 	if (!CellTexture.loadFromFile("res/AllGridpng.png"))
@@ -29,5 +29,5 @@ void Map::InitWorld()
 
 	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(colors.darkGrey);
+	backgroundWorld.setFillColor(Color::Black);
 }

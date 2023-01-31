@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INPUT_H
+#define INPUT_H
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -19,4 +20,6 @@ public:
 private:
 	Button btn;
 };
+
+#endif
 
