@@ -1,23 +1,25 @@
 #include "Main.h"
-#include "Map.h"
 #include <iostream>
+#include "Player.h"
+#include "Map.h"
 
-
+Player* player;
 
 int main()
 {
+	player = new Player();
+	Map currentMap;
 	//colors = Colors();
 
 	//Player
-	currentMap = new Map();
-	player = new Player();
+	//currentMap = new Map();
+	//player = new Player();
 
 	//Map
 	//Window
 	InitWindow();
 
-
-	currentMap->InitWorld();
+	currentMap.InitWorld();
 
 	//Other
 	LoadFont();
@@ -32,7 +34,7 @@ int main()
 
 		window.clear();
 
-		currentMap->DrawWorld();
+		currentMap.DrawWorld();
 
 		if (state == GameState::Menu)
 		{
@@ -45,7 +47,7 @@ int main()
 		{
 			//GameLoop
 
-			player->CheckInput();
+			//player->CheckInput();
 
 			player->PlayerMovement();
 

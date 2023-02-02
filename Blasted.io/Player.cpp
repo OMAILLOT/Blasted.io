@@ -29,46 +29,46 @@ Vector2f Player::normalize(Vector2f vector) {
 	return Vector2f();
 }
 
-void Player::CheckInput() {
-	if (playerInput->GetButton().left == true)
-	{
-		playerSpeed.x = -PLAYER_SPEED;
-
-		if (playerRenderer.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
-			playerSpeed.x = 0;
-	}
-	if (playerInput->GetButton().right == true)
-	{
-		playerSpeed.x = PLAYER_SPEED;
-
-		if (playerRenderer.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - playerRenderer.getRadius() * 2)
-			playerSpeed.x = 0;
-	}
-	if (playerInput->GetButton().up == true)
-	{
-		playerSpeed.y = -PLAYER_SPEED;
-
-		if (playerRenderer.getPosition().y < -(columns / 2 * WorldCell.getLocalBounds().height))
-			playerSpeed.y = 0;
-
-	}
-	if (playerInput->GetButton().down == true)
-	{
-		playerSpeed.y = PLAYER_SPEED;
-
-		if (playerRenderer.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - playerRenderer.getRadius() * 2)
-			playerSpeed.y = 0;
-	}
-	if (playerInput->GetButton().attack == true)
-	{
-	}
-	if (playerInput->GetButton().exit == true)
-	{
-		state = GameState::Menu;
-	}
-
-	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
-	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
-}
+//void Player::CheckInput() {
+//	if (playerInput->GetButton().left == true)
+//	{
+//		playerSpeed.x = -PLAYER_SPEED;
+//
+//		if (playerRenderer.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
+//			playerSpeed.x = 0;
+//	}
+//	if (playerInput->GetButton().right == true)
+//	{
+//		playerSpeed.x = PLAYER_SPEED;
+//
+//		if (playerRenderer.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - playerRenderer.getRadius() * 2)
+//			playerSpeed.x = 0;
+//	}
+//	if (playerInput->GetButton().up == true)
+//	{
+//		playerSpeed.y = -PLAYER_SPEED;
+//
+//		if (playerRenderer.getPosition().y < -(columns / 2 * WorldCell.getLocalBounds().height))
+//			playerSpeed.y = 0;
+//
+//	}
+//	if (playerInput->GetButton().down == true)
+//	{
+//		playerSpeed.y = PLAYER_SPEED;
+//
+//		if (playerRenderer.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - playerRenderer.getRadius() * 2)
+//			playerSpeed.y = 0;
+//	}
+//	if (playerInput->GetButton().attack == true)
+//	{
+//	}
+//	if (playerInput->GetButton().exit == true)
+//	{
+//		state = GameState::Menu;
+//	}
+//
+//	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
+//	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
+//}
 
 

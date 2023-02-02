@@ -1,9 +1,5 @@
-#include "Map.h"
-#include "Main.h"
 #include <SFML/Graphics.hpp>
-
-
-
+#include "Map.h"
 
 void Map::DrawWorld()
 {
@@ -13,11 +9,10 @@ void Map::DrawWorld()
 		{
 			WorldCell.setPosition(i * WorldCell.getLocalBounds().width, j * WorldCell.getLocalBounds().height);
 			WorldCell.move(-rows / 2 * WorldCell.getLocalBounds().width, -columns / 2 * WorldCell.getLocalBounds().height);
-			window.draw(WorldCell);
+			//window.draw(WorldCell);
 		}
 	}
 }
-
 
 void Map::InitWorld()
 {
