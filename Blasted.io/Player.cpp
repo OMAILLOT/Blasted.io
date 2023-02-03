@@ -1,11 +1,11 @@
 #include "Player.h"
 
-
+const int PLAYER_SPEED = 2;
 
 Player::Player() {
 	playerInput = new Input();
 	playerRenderer.setRadius(25.f);
-	playerRenderer.setFillColor(  Color::Blue);
+	playerRenderer.setFillColor(sf::Color::Blue);
 }
 
 void Player::PlayerMovement()

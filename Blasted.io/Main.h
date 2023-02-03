@@ -6,30 +6,27 @@
 using namespace sf;
 using namespace std;
 
-
 //Const
-extern const int WIN_WIDTH = 1280;
-extern const int WIN_HEIGHT = 720;
+const int WIN_WIDTH = 1280;
+const int WIN_HEIGHT = 720;
 
 //Variable global
-extern RenderWindow window;
-extern View camera;
-extern Font font;
+RenderWindow window;
+View camera;
+Font font;
 
-extern vector<RectangleShape> world;
- 
- //Colors colors;;
- 
+vector<RectangleShape> world;
 
+//Colors colors;;
 
- //Menu
-extern Text titleText;
-extern Text playText;
-extern Text settingText;
-extern Text quitText;
+//Menu
+Text titleText;
+Text playText;
+Text settingText;
+Text quitText;
 
-extern int selectedItem = 0;
-extern bool startGameKeyPressed = false;
+int selectedItem = 0;
+bool startGameKeyPressed = false;
 
 
 enum class GameState { Menu, Game, Setting };

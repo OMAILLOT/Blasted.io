@@ -1,6 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include "Map.h"
 
+Sprite WorldCell;
+Texture CellTexture;
+RectangleShape backgroundWorld;
+
+const long rows = 32;
+const long columns = 32;
+
+const int squareSize = 48;
+const float squareOutlineThickness = 1.f;
+
 void Map::DrawWorld()
 {
 	for (int i = 0; i < rows; i++)
@@ -24,5 +34,5 @@ void Map::InitWorld()
 
 	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(Color::Black);
+	backgroundWorld.setFillColor(sf::Color::Black);
 }

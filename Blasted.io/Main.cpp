@@ -1,5 +1,5 @@
-#include "Main.h"
 #include <iostream>
+#include "Main.h"
 #include "Player.h"
 #include "Map.h"
 
@@ -87,7 +87,7 @@ void HandleMenuInput(sf::Event& event)
 				if (selectedItem < 2)
 					selectedItem++;
 			}
-			
+
 		}
 	}
 	else
@@ -139,19 +139,19 @@ void DrawMenu()
 	window.draw(quitText);
 
 	if (selectedItem == 0)
-		playText.setFillColor(Color::Red);
+		playText.setFillColor(sf::Color::Red);
 	else
-		playText.setFillColor(Color::White);
+		playText.setFillColor(sf::Color::White);
 
 	if (selectedItem == 1)
-		settingText.setFillColor(Color::Red);
+		settingText.setFillColor(sf::Color::Red);
 	else
-		settingText.setFillColor(Color::White);
+		settingText.setFillColor(sf::Color::White);
 
 	if (selectedItem == 2)
-		quitText.setFillColor(Color::Red);
+		quitText.setFillColor(sf::Color::Red);
 	else
-		quitText.setFillColor(Color::White);
+		quitText.setFillColor(sf::Color::White);
 }
 
 #pragma endregion

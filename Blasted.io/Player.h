@@ -7,9 +7,6 @@
 using namespace sf;
 using namespace std;
 
-
-extern const int PLAYER_SPEED = 2;
-
 class Player {
 
 public:
