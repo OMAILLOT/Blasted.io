@@ -1,11 +1,11 @@
 #include "Player.h"
-
-const int PLAYER_SPEED = 2;
+#include "Map.h"
+#include "Main.h"
 
 Player::Player() {
 	playerInput = new Input();
 	playerRenderer.setRadius(25.f);
-	playerRenderer.setFillColor(sf::Color::Blue);
+	playerRenderer.setFillColor(gameColors->blue);
 }
 
 void Player::PlayerMovement()
@@ -29,46 +29,66 @@ Vector2f Player::normalize(Vector2f vector) {
 	return Vector2f();
 }
 
-//void Player::CheckInput() {
-//	if (playerInput->GetButton().left == true)
-//	{
-//		playerSpeed.x = -PLAYER_SPEED;
-//
-//		if (playerRenderer.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
-//			playerSpeed.x = 0;
-//	}
-//	if (playerInput->GetButton().right == true)
-//	{
-//		playerSpeed.x = PLAYER_SPEED;
-//
-//		if (playerRenderer.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - playerRenderer.getRadius() * 2)
-//			playerSpeed.x = 0;
-//	}
-//	if (playerInput->GetButton().up == true)
-//	{
-//		playerSpeed.y = -PLAYER_SPEED;
-//
-//		if (playerRenderer.getPosition().y < -(columns / 2 * WorldCell.getLocalBounds().height))
-//			playerSpeed.y = 0;
-//
-//	}
-//	if (playerInput->GetButton().down == true)
-//	{
-//		playerSpeed.y = PLAYER_SPEED;
-//
-//		if (playerRenderer.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - playerRenderer.getRadius() * 2)
-//			playerSpeed.y = 0;
-//	}
-//	if (playerInput->GetButton().attack == true)
-//	{
-//	}
-//	if (playerInput->GetButton().exit == true)
-//	{
-//		state = GameState::Menu;
-//	}
-//
-//	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
-//	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
-//}
+void Player::CheckInput() {
+	if (playerInput->GetButton().left == true)
+	{
+		playerSpeed.x = -PLAYER_SPEED;
+
+		if (playerRenderer.getPosition().x < -(rows / 2 * WorldCell.getLocalBounds().width))
+			playerSpeed.x = 0;
+	}
+	if (playerInput->GetButton().right == true)
+	{
+		playerSpeed.x = PLAYER_SPEED;
+
+		if (playerRenderer.getPosition().x > (rows / 2 * WorldCell.getLocalBounds().width) - playerRenderer.getRadius() * 2)
+			playerSpeed.x = 0;
+	}
+	if (playerInput->GetButton().up == true)
+	{
+		playerSpeed.y = -PLAYER_SPEED;
+
+		if (playerRenderer.getPosition().y < -(columns / 2 * WorldCell.getLocalBounds().height))
+			playerSpeed.y = 0;
+
+	}
+	if (playerInput->GetButton().down == true)
+	{
+		playerSpeed.y = PLAYER_SPEED;
+
+		if (playerRenderer.getPosition().y > (columns / 2 * WorldCell.getLocalBounds().height) - playerRenderer.getRadius() * 2)
+			playerSpeed.y = 0;
+	}
+	if (playerInput->GetButton().attack == true)
+	{
+	}
+	if (playerInput->GetButton().exit == true)
+	{
+		currentGameState = GameState::Menu;
+	}
+
+	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
+	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
+}
+
+void Player::LerpCamera()
+{
+	Vector2f cameraPos = camera.getCenter();
+	Vector2f playerPos = player->playerRenderer.getPosition();
+
+	playerPos.x += player->playerRenderer.getRadius();
+	playerPos.y += player->playerRenderer.getRadius();
+
+
+	cameraPos = Vector2f(lerp(cameraPos, playerPos, 0.05f));
+
+	camera.setCenter(cameraPos);
+	gameWindow->window.setView(camera);
+}
+
+Vector2f Player::lerp(Vector2f start, Vector2f end, float percent)
+{
+	return start + (end - start) * percent;
+}
 
 

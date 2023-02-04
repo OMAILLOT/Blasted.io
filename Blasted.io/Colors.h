@@ -4,8 +4,8 @@
 using namespace sf;
 using namespace std;
 
-struct Colors{
-
+struct GameColors{
+public:
 	Color darkGrey;
 	Color grey;
 	Color lightGrey;
@@ -13,5 +13,5 @@ struct Colors{
 	Color blue;
 
 
-	Colors Init();
+	GameColors();
 };

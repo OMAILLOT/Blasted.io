@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Map.h"
+#include "Main.h"
 
 Sprite WorldCell;
 Texture CellTexture;
@@ -19,12 +20,12 @@ void Map::DrawWorld()
 		{
 			WorldCell.setPosition(i * WorldCell.getLocalBounds().width, j * WorldCell.getLocalBounds().height);
 			WorldCell.move(-rows / 2 * WorldCell.getLocalBounds().width, -columns / 2 * WorldCell.getLocalBounds().height);
-			//window.draw(WorldCell);
+			gameWindow->window.draw(WorldCell);
 		}
 	}
 }
 
-void Map::InitWorld()
+Map::Map()
 {
 	if (!CellTexture.loadFromFile("res/AllGridpng.png"))
 		return;
@@ -34,5 +35,5 @@ void Map::InitWorld()
 
 	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(sf::Color::Black);
+	backgroundWorld.setFillColor(gameColors->darkGrey);
 }

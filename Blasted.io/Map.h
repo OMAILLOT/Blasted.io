@@ -16,7 +16,7 @@ extern RectangleShape backgroundWorld;
 class Map {
 public:
 	void DrawWorld();
-	void InitWorld();
+	Map();
 };
 
 
