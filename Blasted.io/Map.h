@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include <SFML/Graphics.hpp>
+
 //#include "Main.cpp"
 
 using namespace sf;

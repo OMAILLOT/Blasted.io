@@ -28,6 +28,9 @@
     <Filter Include="Fichiers d%27en-tête\Enums">
       <UniqueIdentifier>{66dfe0a2-78d6-4fa2-a0ba-8c545178f971}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ef9d1cb5-cc36-4d77-8fce-da23d52f0d8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -38,9 +41,6 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Colors.cpp">
-      <Filter>Fichiers sources\Structs</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Fichiers sources</Filter>
@@ -56,6 +56,12 @@
     </ClCompile>
     <ClCompile Include="GameState.h">
       <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="GameWindow.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

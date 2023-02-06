@@ -3,7 +3,7 @@
 
 
 
-GameFont::GameFont()
+void GameFont::LoadFont()
 {
 	if (!font.loadFromFile("res/poppins.ttf")) {
 		std::cout << "Erreur de chargement de font" << std::endl;

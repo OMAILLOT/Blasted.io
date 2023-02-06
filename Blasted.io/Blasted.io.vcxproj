@@ -81,7 +81,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <ReferencePath>$(VC_ReferencesPath_x64)</ReferencePath>
-    <PublicIncludeDirectories>O:\document\SFML-2.5.1\include</PublicIncludeDirectories>
+    <PublicIncludeDirectories>O:\document\SFML-2.5.1\include;C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -89,7 +89,7 @@
     </LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <ReferencePath>$(VC_ReferencesPath_x64)</ReferencePath>
-    <PublicIncludeDirectories>O:\document\SFML-2.5.1\include</PublicIncludeDirectories>
+    <PublicIncludeDirectories>O:\document\SFML-2.5.1\include;C:\Users\orian\Documents\SFML-2.5.1\include</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -129,13 +129,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalIncludeDirectories>O:\document\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>O:\document\SFML-2.5.1\include;C:\Users\orian\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>O:\document\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies);sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>O:\document\SFML-2.5.1\lib;C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-main-d.lib</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -148,7 +148,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalIncludeDirectories>O:\document\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>O:\document\SFML-2.5.1\include;C:\Users\orian\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -156,12 +156,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>O:\document\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>O:\document\SFML-2.5.1\lib;C:\Users\orian\Documents\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Colors.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameFont.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="input.cpp" />
@@ -170,8 +169,10 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameState.h" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="GameFont.h" />
     <ClInclude Include="GameWindow.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Blasted.io.rc" />

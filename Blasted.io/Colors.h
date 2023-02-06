@@ -5,13 +5,10 @@ using namespace sf;
 using namespace std;
 
 struct GameColors{
-public:
-	Color darkGrey;
-	Color grey;
-	Color lightGrey;
+	Color darkGrey{ Color(168, 168, 168) };
+	Color grey{ Color(184, 184, 184) };
+	Color lightGrey{ Color(205, 205, 205) };
 
-	Color blue;
+	Color blue { Color(0, 179, 223) };
 
-
-	GameColors();
 };

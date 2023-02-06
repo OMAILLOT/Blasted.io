@@ -9,7 +9,7 @@ class GameFont
 public:
 	sf::Font font;
 
-	GameFont();
+	void LoadFont();
 	void SetText(sf::Text& txt, sf::String str, int size);
 };
 

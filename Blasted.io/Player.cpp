@@ -6,6 +6,7 @@ Player::Player() {
 	playerInput = new Input();
 	playerRenderer.setRadius(25.f);
 	playerRenderer.setFillColor(gameColors->blue);
+	//gameWindow->InitPlayerOnWindow();
 }
 
 void Player::PlayerMovement()
@@ -30,6 +31,8 @@ Vector2f Player::normalize(Vector2f vector) {
 }
 
 void Player::CheckInput() {
+
+
 	if (playerInput->GetButton().left == true)
 	{
 		playerSpeed.x = -PLAYER_SPEED;
@@ -69,26 +72,6 @@ void Player::CheckInput() {
 
 	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;
 	if (playerInput->GetButton().up == false && playerInput->GetButton().down == false) playerSpeed.y = 0;
-}
-
-void Player::LerpCamera()
-{
-	Vector2f cameraPos = camera.getCenter();
-	Vector2f playerPos = player->playerRenderer.getPosition();
-
-	playerPos.x += player->playerRenderer.getRadius();
-	playerPos.y += player->playerRenderer.getRadius();
-
-
-	cameraPos = Vector2f(lerp(cameraPos, playerPos, 0.05f));
-
-	camera.setCenter(cameraPos);
-	gameWindow->window.setView(camera);
-}
-
-Vector2f Player::lerp(Vector2f start, Vector2f end, float percent)
-{
-	return start + (end - start) * percent;
 }
 
 

@@ -12,7 +12,7 @@ Map* currentMap;
 GameFont* gameFont;
 Menu* menu;
 GameColors* gameColors;
-
+Camera* gameCamera;
 int main()
 {
 	InitGame();
@@ -28,6 +28,7 @@ int main()
 
 		if (currentGameState == GameState::Menu)
 		{
+
 			menu->HandleMenuInput(event);
 
 			menu->DrawMenu();
@@ -36,12 +37,13 @@ int main()
 		else if (currentGameState == GameState::Game)
 		{
 			//GameLoop
+			gameWindow->InitPlayerOnWindow();
 
 			player->CheckInput();
 
 			player->PlayerMovement();
 
-			player->LerpCamera();
+			gameCamera->LerpCamera();
 
 			gameWindow->window.draw(player->playerRenderer);
 		}
@@ -59,13 +61,14 @@ int main()
 
 void InitGame() {
 	currentGameState = GameState::Menu;
-	
-	gameWindow = new GameWindow();
-	player = new Player();
-	currentMap = new Map();
-	menu = new Menu();
-	gameFont = new GameFont();
 	gameColors = new GameColors();
+	player = new Player();
+	gameWindow = new GameWindow();
+	gameCamera = new Camera();
+	currentMap = new Map();
+	gameFont = new GameFont();
+	gameFont->LoadFont();
+	menu = new Menu();
 }
 
 

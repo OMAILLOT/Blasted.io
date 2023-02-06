@@ -32,10 +32,8 @@ Menu::Menu()
 	titleText.setFont(gameFont->font);
 	titleText.setCharacterSize(72);
 	titleText.setString("BLASTED.IO");
-	titleText.setPosition(Vector2f((gameWindow->WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
-	std::string debug = titleText.getString();
-	std::cout << debug << std::endl;
-
+	//titleText.setPosition(Vector2f((gameWindow->WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
+	titleText.setPosition(Vector2f(0,0));
 
 	playText.setFont(gameFont->font);
 	playText.setCharacterSize(36);
@@ -51,6 +49,7 @@ Menu::Menu()
 	quitText.setCharacterSize(36);
 	quitText.setString("QUIT");
 	quitText.setPosition(Vector2f((gameWindow->WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
+
 }
 
 void Menu::HandleMenuInput(sf::Event& event)

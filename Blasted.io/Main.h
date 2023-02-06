@@ -10,6 +10,7 @@
 #include "Colors.h"
 #include "GameFont.h"
 #include "GameState.h"
+#include "Camera.h"
 
 using namespace sf;
 using namespace std;
@@ -21,7 +22,8 @@ extern Player* player;
 extern Map* currentMap;
 extern GameFont* gameFont;
 extern Menu* menu;
-extern GameColors* gameColors;;
+extern GameColors* gameColors;
+extern Camera* gameCamera;
 
 extern GameState currentGameState;
 //extern GameState currentGameState;
@@ -29,4 +31,5 @@ extern GameState currentGameState;
 
 int main();
 void InitGame();
+
 #endif
