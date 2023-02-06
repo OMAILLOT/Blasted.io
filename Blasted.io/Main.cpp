@@ -149,9 +149,6 @@ void HandleMenuInput(sf::Event& event)
 
 void DrawMenu()
 {
-	camera.setCenter(-WIN_WIDTH / 2, -WIN_HEIGHT / 2);
-	window.setView(camera);
-
 	window.draw(titleText);
 	window.draw(playText);
 	window.draw(settingText);
