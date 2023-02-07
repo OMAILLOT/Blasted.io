@@ -2,15 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include "GameFont.h"
-
-
+#include "GameWindow.h"
+#include "Player.h"
 
 class Menu
 {
 
 public:
-	GameFont* gameFont;
-	
+
 	sf::Text titleText;
 	sf::Text playText;
 	sf::Text settingText;
@@ -19,8 +18,8 @@ public:
 	int selectedItem = 0;
 	bool startGameKeyPressed = false;
 
-	void DrawMenu();
-	Menu();
-	void HandleMenuInput(sf::Event& event);
+	void DrawMenu(GameWindow& win);
+	Menu(GameFont& gameFont, GameWindow& win);
+	void HandleMenuInput(sf::Event& event, Player& player, GameState& gameState, GameWindow& win);
 };
 

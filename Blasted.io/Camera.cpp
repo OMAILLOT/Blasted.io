@@ -5,30 +5,28 @@
 #include "Tools.h"
 
 
-void Camera::LerpCamera()
+void Camera::LerpCamera(Player& player, GameWindow& win)
 {
 	Vector2f cameraPos = camera.getCenter();
-	Vector2f playerPos = player->playerRenderer.getPosition();
+	Vector2f playerPos = player.playerRenderer.getPosition();
 
-	playerPos.x += player->playerRenderer.getRadius();
-	playerPos.y += player->playerRenderer.getRadius();
+	playerPos.x += player.playerRenderer.getRadius();
+	playerPos.y += player.playerRenderer.getRadius();
 
 
 	cameraPos = Vector2f(tools::Lerp(cameraPos, playerPos, 0.05f));
 
 	camera.setCenter(cameraPos);
-	gameWindow->window.setView(camera);
+	win.window.setView(camera);
 
 
 }
 
-Camera::Camera() {
-	Vector2f cameraPos = camera.getCenter();
+Camera::Camera(GameWindow& win) {
 
+	camera.setSize(Vector2f(win.WIN_WIDTH, win.WIN_HEIGHT));
 
-	cameraPos = Vector2f(0,0);
-
-	camera.setCenter(cameraPos);
-	gameWindow->window.setView(camera);
+	//camera.setCenter(Vector2f(0, 0));
+	win.window.setView(camera);
 }
 

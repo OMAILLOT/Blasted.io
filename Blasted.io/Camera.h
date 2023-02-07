@@ -4,8 +4,8 @@ class Camera
 {
 	public: 
 		sf::View camera;
-		void LerpCamera();
-		Camera();
+		void LerpCamera(Player& player, GameWindow& win);
+		Camera(GameWindow& win);
 	
 };
 

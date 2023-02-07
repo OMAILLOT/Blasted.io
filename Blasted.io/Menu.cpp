@@ -3,12 +3,12 @@
 #include "Map.h"
 #include <iostream>
 
-void Menu::DrawMenu()
+void Menu::DrawMenu(GameWindow& win)
 {
-	gameWindow->window.draw(titleText);
-	gameWindow->window.draw(playText);
-	gameWindow->window.draw(settingText);
-	gameWindow->window.draw(quitText);
+	win.window.draw(titleText);
+	win.window.draw(playText);
+	win.window.draw(settingText);
+	win.window.draw(quitText);
 
 	if (selectedItem == 0)
 		playText.setFillColor(sf::Color::Red);
@@ -26,33 +26,34 @@ void Menu::DrawMenu()
 		quitText.setFillColor(sf::Color::White);
 }
 
-Menu::Menu()
+Menu::Menu(GameFont& gameFont, GameWindow& win)
 {
-	
-	titleText.setFont(gameFont->font);
+	//i/*f (!localFont.loadFromFile("res/poppins.ttf")) {
+	//	std::cout << "Erreur de chargement de font" << std::endl;
+	//}*/
+	titleText.setFont(gameFont.font);
 	titleText.setCharacterSize(72);
 	titleText.setString("BLASTED.IO");
-	//titleText.setPosition(Vector2f((gameWindow->WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
-	titleText.setPosition(Vector2f(0,0));
+	titleText.setPosition(Vector2f((win.WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
 
-	playText.setFont(gameFont->font);
+	playText.setFont(gameFont.font);
 	playText.setCharacterSize(36);
 	playText.setString("PLAY");
-	playText.setPosition(Vector2f((gameWindow->WIN_WIDTH - playText.getLocalBounds().width) / 2, 300));
+	playText.setPosition(Vector2f((win.WIN_WIDTH - playText.getLocalBounds().width) / 2, 300));
 
-	settingText.setFont(gameFont->font);
+	settingText.setFont(gameFont.font);
 	settingText.setCharacterSize(36);
 	settingText.setString("SETTING");
-	settingText.setPosition(Vector2f((gameWindow->WIN_WIDTH - settingText.getLocalBounds().width) / 2, 370));
+	settingText.setPosition(Vector2f((win.WIN_WIDTH - settingText.getLocalBounds().width) / 2, 370));
 
-	quitText.setFont(gameFont->font);
+	quitText.setFont(gameFont.font);
 	quitText.setCharacterSize(36);
 	quitText.setString("QUIT");
-	quitText.setPosition(Vector2f((gameWindow->WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
+	quitText.setPosition(Vector2f((win.WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
 
 }
 
-void Menu::HandleMenuInput(sf::Event& event)
+void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameState, GameWindow& win)
 {
 	if (event.type == Event::KeyPressed)
 	{
@@ -92,23 +93,23 @@ void Menu::HandleMenuInput(sf::Event& event)
 
 				int X = tempX(gen);
 
-				int minY = ((WorldCell.getLocalBounds().height * columns) - player->playerRenderer.getRadius()) / -2;
-				int maxY = ((WorldCell.getLocalBounds().height * columns) - player->playerRenderer.getRadius()) / 2;
+				int minY = ((WorldCell.getLocalBounds().height * columns) - player.playerRenderer.getRadius()) / -2;
+				int maxY = ((WorldCell.getLocalBounds().height * columns) - player.playerRenderer.getRadius()) / 2;
 				uniform_int_distribution<int> tempY(minY, maxY);
 
 				int Y = tempY(gen);
 
-				player->playerRenderer.setPosition(X, Y);
+				player.playerRenderer.setPosition(X, Y);
 
-				currentGameState = GameState::Game;
+				gameState = GameState::Game;
 			}
 			else if (selectedItem == 1)
 			{
-				currentGameState = GameState::Setting;
+				gameState = GameState::Setting;
 			}
 			else if (selectedItem == 2)
 			{
-				gameWindow->window.close();
+				win.window.close();
 			}
 		}
 	}

@@ -2,10 +2,10 @@
 #include "Map.h"
 #include "Main.h"
 
-Player::Player() {
+Player::Player(GameColors& gameColors) {
 	playerInput = new Input();
 	playerRenderer.setRadius(25.f);
-	playerRenderer.setFillColor(gameColors->blue);
+	playerRenderer.setFillColor(gameColors.blue);
 	//gameWindow->InitPlayerOnWindow();
 }
 
@@ -30,7 +30,7 @@ Vector2f Player::normalize(Vector2f vector) {
 	return Vector2f();
 }
 
-void Player::CheckInput() {
+void Player::CheckInput(GameState& gameState) {
 
 
 	if (playerInput->GetButton().left == true)
@@ -67,7 +67,7 @@ void Player::CheckInput() {
 	}
 	if (playerInput->GetButton().exit == true)
 	{
-		currentGameState = GameState::Menu;
+		gameState = GameState::Menu;
 	}
 
 	if (playerInput->GetButton().left == false && playerInput->GetButton().right == false) playerSpeed.x = 0;

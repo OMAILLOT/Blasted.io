@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "Camera.h"
+#include "Player.h"
 
 
 class GameWindow
@@ -11,6 +13,6 @@ public:
 	sf::RenderWindow window;
 
 	GameWindow();
-	void InitPlayerOnWindow();
+	void InitPlayerOnWindow(Camera& gameCamera, Player& player);
 };
 

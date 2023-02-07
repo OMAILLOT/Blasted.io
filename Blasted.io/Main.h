@@ -14,22 +14,22 @@
 
 using namespace sf;
 using namespace std;
+class Game {
+public: 
+	GameWindow gameWindow;
+	Player player;
+	Map currentMap;
+	GameFont gameFont;
+	Menu menu;
+	GameColors gameColors;
+	Camera gameCamera;
 
+	GameState currentGameState;
 
-//Variable global
-extern GameWindow* gameWindow;
-extern Player* player;
-extern Map* currentMap;
-extern GameFont* gameFont;
-extern Menu* menu;
-extern GameColors* gameColors;
-extern Camera* gameCamera;
+	void InitGame();
+};
 
-extern GameState currentGameState;
-//extern GameState currentGameState;
+	int main();
 
-
-int main();
-void InitGame();
 
 #endif

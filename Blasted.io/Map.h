@@ -1,6 +1,8 @@
 #ifndef MAP_H
 #define MAP_H
 #include <SFML/Graphics.hpp>
+#include "GameWindow.h"
+#include "Colors.h"
 
 //#include "Main.cpp"
 
@@ -16,8 +18,8 @@ extern RectangleShape backgroundWorld;
 
 class Map {
 public:
-	void DrawWorld();
-	Map();
+	void DrawWorld(GameWindow& gameWindow);
+	Map(GameColors& gameColors);
 };
 
 

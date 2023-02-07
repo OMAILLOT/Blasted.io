@@ -1,5 +1,5 @@
 #include "GameWindow.h"
-#include "Main.h"
+
 
 GameWindow::GameWindow()
 {
@@ -10,7 +10,7 @@ GameWindow::GameWindow()
 	options.antialiasingLevel = 8;
 }
 
-void GameWindow::InitPlayerOnWindow() {
-	gameCamera->camera.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
-	gameCamera->camera.setCenter(player->playerRenderer.getPosition());
+void GameWindow::InitPlayerOnWindow(Camera& gameCamera, Player& player) {
+	gameCamera.camera.setSize(Vector2f(WIN_WIDTH, WIN_HEIGHT));
+	gameCamera.camera.setCenter(player.playerRenderer.getPosition());
 }

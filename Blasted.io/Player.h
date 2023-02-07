@@ -2,6 +2,8 @@
 #define PLAYER_H
 #include <SFML/Graphics.hpp>
 #include "input.h"
+#include "Colors.h"
+#include "GameState.h"
 //#include "Main.h"
 
 using namespace sf;
@@ -17,10 +19,10 @@ public:
 
 
 
-	Player();
+	Player(GameColors& gameColors);
 	void PlayerMovement();
 	Vector2f normalize(Vector2f vector);
-	void CheckInput();
+	void CheckInput(GameState& gameState);
 
 };
 

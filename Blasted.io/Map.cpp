@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include "Map.h"
-#include "Main.h"
 
 Sprite WorldCell;
 Texture CellTexture;
@@ -12,7 +11,7 @@ const long columns = 32;
 const int squareSize = 48;
 const float squareOutlineThickness = 1.f;
 
-void Map::DrawWorld()
+void Map::DrawWorld(GameWindow& gameWindow)
 {
 	for (int i = 0; i < rows; i++)
 	{
@@ -20,12 +19,12 @@ void Map::DrawWorld()
 		{
 			WorldCell.setPosition(i * WorldCell.getLocalBounds().width, j * WorldCell.getLocalBounds().height);
 			WorldCell.move(-rows / 2 * WorldCell.getLocalBounds().width, -columns / 2 * WorldCell.getLocalBounds().height);
-			gameWindow->window.draw(WorldCell);
+			gameWindow.window.draw(WorldCell);
 		}
 	}
 }
 
-Map::Map()
+Map::Map(GameColors& gameColors)
 {
 	if (!CellTexture.loadFromFile("res/AllGridpng.png"))
 		return;
@@ -35,5 +34,5 @@ Map::Map()
 
 	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
 	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
-	backgroundWorld.setFillColor(gameColors->darkGrey);
+	backgroundWorld.setFillColor(gameColors.darkGrey);
 }
