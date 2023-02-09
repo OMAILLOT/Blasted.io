@@ -1,3 +1,4 @@
-
-
-enum class GameState { Menu, Game, Setting };
+#pragma once
+enum class GameState {
+	Menu, Game, Setting
+};

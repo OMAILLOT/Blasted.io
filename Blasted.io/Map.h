@@ -6,15 +6,14 @@
 
 //#include "Main.cpp"
 
-using namespace sf;
 using namespace std;
 
 extern const long columns;
 extern const long rows;
 
-extern Sprite WorldCell;
-extern Texture CellTexture;
-extern RectangleShape backgroundWorld;
+extern sf::Sprite WorldCell;
+extern sf::Texture CellTexture;
+extern sf::RectangleShape backgroundWorld;
 
 class Map {
 public:

@@ -1,14 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-using namespace sf;
 using namespace std;
 
-struct GameColors{
-	Color darkGrey{ Color(168, 168, 168) };
-	Color grey{ Color(184, 184, 184) };
-	Color lightGrey{ Color(205, 205, 205) };
+struct GameColors {
+	sf::Color darkGrey{ sf::Color(168, 168, 168) };
+	sf::Color grey{ sf::Color(184, 184, 184) };
+	sf::Color lightGrey{ sf::Color(205, 205, 205) };
 
-	Color blue { Color(0, 179, 223) };
+	sf::Color blue { sf::Color(0, 179, 223) };
 
 };

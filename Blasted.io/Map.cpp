@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include "Map.h"
 
-Sprite WorldCell;
-Texture CellTexture;
-RectangleShape backgroundWorld;
+sf::Sprite WorldCell;
+sf::Texture CellTexture;
+sf::RectangleShape backgroundWorld;
 
 const long rows = 32;
 const long columns = 32;
@@ -32,7 +32,7 @@ Map::Map(GameColors& gameColors)
 	WorldCell.setTexture(CellTexture);
 	WorldCell.setPosition(0, 0);
 
-	backgroundWorld.setSize(Vector2f(rows * squareSize * 2, columns * squareSize * 2));
-	backgroundWorld.setPosition(Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
+	backgroundWorld.setSize(sf::Vector2f(rows * squareSize * 2, columns * squareSize * 2));
+	backgroundWorld.setPosition(sf::Vector2f(-rows * squareSize * 2 / 2, -columns * squareSize * 2 / 2));
 	backgroundWorld.setFillColor(gameColors.darkGrey);
 }

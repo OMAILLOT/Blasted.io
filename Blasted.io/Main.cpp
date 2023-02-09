@@ -1,5 +1,13 @@
 #include <iostream>
 #include "Main.h"
+#include "Menu.h"
+#include "Player.h"
+#include "Map.h"
+#include "GameWindow.h"
+#include "Colors.h"
+#include "GameFont.h"
+#include "GameState.h"
+#include "Camera.h"
 
 const int WIN_WIDTH = 1280;
 const int WIN_HEIGHT = 720;
@@ -32,14 +40,24 @@ int main()
 
 void Game::InitGame()
 {
+	GameWindow gameWindow;
+	GameColors gameColors;
+	Player player;
+	player.InitPlayer(gameColors);
+	Map currentMap(gameColors);
+	GameFont gameFont;
+	Menu menu(gameFont, gameWindow);
+	GameCamera gameCamera(gameWindow);
+
+	GameState currentGameState = GameState::Menu;
+
+
 	gameFont.LoadFont();
-
-	InitGame();
-
+	
 	while (gameWindow.window.isOpen())
 	{
-		Event event;
-		while (gameWindow.window.pollEvent(event)) player.playerInput->InputHandler(event, gameWindow.window);
+		sf::Event event;
+		while (gameWindow.window.pollEvent(event)) player.playerInput.InputHandler(event, gameWindow.window);
 
 		gameWindow.window.clear();
 

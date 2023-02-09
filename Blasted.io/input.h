@@ -3,7 +3,6 @@
 #define INPUT_H
 #include <SFML/Graphics.hpp>
 
-using namespace sf;
 using namespace std;
 
 class Input
@@ -15,7 +14,7 @@ public:
 
 	Button GetButton(void) const;
 
-	void InputHandler(Event& event, RenderWindow& window);
+	void InputHandler(sf::Event& event, sf::RenderWindow& window);
 
 
 private:

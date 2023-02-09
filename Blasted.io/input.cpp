@@ -9,50 +9,50 @@ Input::Button Input::GetButton(void) const
 	return btn;
 }
 
-void Input::InputHandler(Event& event, RenderWindow& window)
+void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
 {
-	if (event.type == Event::Closed) window.close();
+	if (event.type == sf::Event::Closed) window.close();
 
-	if (event.type == Event::KeyPressed)
+	if (event.type == sf::Event::KeyPressed)
 	{
 		switch (event.key.code)
 		{
-		case Keyboard::Left:
+		case sf::Keyboard::Left:
 			btn.left = true;
 			break;
-		case Keyboard::Right:
+		case sf::Keyboard::Right:
 			btn.right = true;
 			break;
-		case Keyboard::Down:
+		case sf::Keyboard::Down:
 			btn.down = true;
 			break;
-		case Keyboard::Up:
+		case sf::Keyboard::Up:
 			btn.up = true;
 			break;
-		case Keyboard::Escape:
+		case sf::Keyboard::Escape:
 			btn.exit = true;
 			break;
 		default:
 			break;
 		}
 	}
-	if (event.type == Event::KeyReleased)
+	if (event.type == sf::Event::KeyReleased)
 	{
 		switch (event.key.code)
 		{
-		case Keyboard::Left:
+		case sf::Keyboard::Left:
 			btn.left = false;
 			break;
-		case Keyboard::Right:
+		case sf::Keyboard::Right:
 			btn.right = false;
 			break;
-		case Keyboard::Down:
+		case sf::Keyboard::Down:
 			btn.down = false;
 			break;
-		case Keyboard::Up:
+		case sf::Keyboard::Up:
 			btn.up = false;
 			break;
-		case Keyboard::Escape:
+		case sf::Keyboard::Escape:
 			btn.exit = false;
 			break;
 		default:
@@ -60,16 +60,16 @@ void Input::InputHandler(Event& event, RenderWindow& window)
 		}
 	}
 
-	if (event.type == Event::MouseButtonPressed)
+	if (event.type == sf::Event::MouseButtonPressed)
 	{
-		if (event.mouseButton.button == Mouse::Left)
+		if (event.mouseButton.button == sf::Mouse::Left)
 		{
 			btn.attack = true;
 		}
 	}
-	if (event.type == Event::MouseButtonReleased)
+	if (event.type == sf::Event::MouseButtonReleased)
 	{
-		if (event.mouseButton.button == Mouse::Left)
+		if (event.mouseButton.button == sf::Mouse::Left)
 		{
 			btn.attack = false;
 		}

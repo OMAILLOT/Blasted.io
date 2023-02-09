@@ -1,7 +1,7 @@
 #include "Menu.h"
-#include "Main.h"
 #include "Map.h"
 #include <iostream>
+#include <random>
 
 void Menu::DrawMenu(GameWindow& win)
 {
@@ -34,39 +34,39 @@ Menu::Menu(GameFont& gameFont, GameWindow& win)
 	titleText.setFont(gameFont.font);
 	titleText.setCharacterSize(72);
 	titleText.setString("BLASTED.IO");
-	titleText.setPosition(Vector2f((win.WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
+	titleText.setPosition(sf::Vector2f((win.WIN_WIDTH - titleText.getLocalBounds().width) / 2, 100));
 
 	playText.setFont(gameFont.font);
 	playText.setCharacterSize(36);
 	playText.setString("PLAY");
-	playText.setPosition(Vector2f((win.WIN_WIDTH - playText.getLocalBounds().width) / 2, 300));
+	playText.setPosition(sf::Vector2f((win.WIN_WIDTH - playText.getLocalBounds().width) / 2, 300));
 
 	settingText.setFont(gameFont.font);
 	settingText.setCharacterSize(36);
 	settingText.setString("SETTING");
-	settingText.setPosition(Vector2f((win.WIN_WIDTH - settingText.getLocalBounds().width) / 2, 370));
+	settingText.setPosition(sf::Vector2f((win.WIN_WIDTH - settingText.getLocalBounds().width) / 2, 370));
 
 	quitText.setFont(gameFont.font);
 	quitText.setCharacterSize(36);
 	quitText.setString("QUIT");
-	quitText.setPosition(Vector2f((win.WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
+	quitText.setPosition(sf::Vector2f((win.WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
 
 }
 
 void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameState, GameWindow& win)
 {
-	if (event.type == Event::KeyPressed)
+	if (event.type == sf::Event::KeyPressed)
 	{
 		if (!startGameKeyPressed)
 		{
 			startGameKeyPressed = true;
 
-			if (event.key.code == Keyboard::Up)
+			if (event.key.code == sf::Keyboard::Up)
 			{
 				if (selectedItem > 0)
 					selectedItem--;
 			}
-			else if (event.key.code == Keyboard::Down)
+			else if (event.key.code == sf::Keyboard::Down)
 			{
 				if (selectedItem < 2)
 					selectedItem++;
@@ -79,9 +79,9 @@ void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameStat
 		startGameKeyPressed = false;
 	}
 
-	if (event.type == Event::KeyReleased)
+	if (event.type == sf::Event::KeyReleased)
 	{
-		if (event.key.code == Keyboard::Return)
+		if (event.key.code == sf::Keyboard::Return)
 		{
 			if (selectedItem == 0)
 			{
