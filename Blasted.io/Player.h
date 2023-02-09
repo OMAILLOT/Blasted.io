@@ -12,6 +12,7 @@ class Player {
 
 public:
 	Input playerInput;
+	sf::RectangleShape canon;
 	sf::CircleShape playerRenderer;
 	sf::Vector2f playerSpeed;
 	const int PLAYER_SPEED = 2;

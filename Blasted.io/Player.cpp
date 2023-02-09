@@ -13,6 +13,13 @@ Player::~Player()
 void Player::InitPlayer(GameColors& gameColors) {
 	playerRenderer.setRadius(25.f);
 	playerRenderer.setFillColor(gameColors.blue);
+	playerRenderer.setOutlineColor(gameColors.playerOutline);
+	playerRenderer.setOutlineThickness(2);
+
+	canon.setSize(sf::Vector2f(15,40));
+	canon.setFillColor(gameColors.canonColor);
+	canon.setOutlineColor(gameColors.canonColorOutline);
+	canon.setOutlineThickness(2);
 	//gameWindow->InitPlayerOnWindow();
 }
 
@@ -20,12 +27,12 @@ void Player::PlayerMovement()
 {
 
 	playerSpeed = normalize(playerSpeed);
-
+	
 	playerSpeed.x *= PLAYER_SPEED;
 	playerSpeed.y *= PLAYER_SPEED;
 
 	playerRenderer.move(playerSpeed);
-
+	canon.move(playerSpeed);
 }
 
 sf::Vector2f Player::normalize(sf::Vector2f vector) {
@@ -38,7 +45,6 @@ sf::Vector2f Player::normalize(sf::Vector2f vector) {
 }
 
 void Player::CheckInput(GameState& gameState) {
-
 
 	if (playerInput.GetButton().left == true)
 	{

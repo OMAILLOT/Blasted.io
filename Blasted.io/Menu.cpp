@@ -101,6 +101,7 @@ void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameStat
 				int Y = tempY(gen);
 
 				player.playerRenderer.setPosition(X, Y);
+				player.canon.setPosition(X + player.playerRenderer.getRadius() - (player.canon.getLocalBounds().width - player.canon.getOutlineThickness() * 2) / 2, Y + player.playerRenderer.getRadius());
 
 				gameState = GameState::Game;
 			}

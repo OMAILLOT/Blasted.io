@@ -82,6 +82,7 @@ void Game::InitGame()
 
 			gameCamera.LerpCamera(player,gameWindow);
 
+			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);
 		}
 		else if (currentGameState == GameState::Setting)
