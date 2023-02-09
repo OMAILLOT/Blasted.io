@@ -7,7 +7,7 @@
 GameCamera::GameCamera(GameWindow& win) {
 	camera.setSize(sf::Vector2f(win.WIN_WIDTH, win.WIN_HEIGHT));
 
-	//camera.setCenter(Vector2f(0, 0));
+	camera.setCenter(sf::Vector2f(win.WIN_WIDTH/2, win.WIN_HEIGHT/2));
 	win.window.setView(camera);
 }
 

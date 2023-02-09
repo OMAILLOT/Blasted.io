@@ -28,9 +28,11 @@ void Menu::DrawMenu(GameWindow& win)
 
 Menu::Menu(GameFont& gameFont, GameWindow& win)
 {
-	//i/*f (!localFont.loadFromFile("res/poppins.ttf")) {
-	//	std::cout << "Erreur de chargement de font" << std::endl;
-	//}*/
+	win.window.draw(titleText);
+	win.window.draw(playText);
+	win.window.draw(settingText);
+	win.window.draw(quitText);
+
 	titleText.setFont(gameFont.font);
 	titleText.setCharacterSize(72);
 	titleText.setString("BLASTED.IO");
@@ -50,7 +52,6 @@ Menu::Menu(GameFont& gameFont, GameWindow& win)
 	quitText.setCharacterSize(36);
 	quitText.setString("QUIT");
 	quitText.setPosition(sf::Vector2f((win.WIN_WIDTH - quitText.getLocalBounds().width) / 2, 440));
-
 }
 
 void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameState, GameWindow& win)

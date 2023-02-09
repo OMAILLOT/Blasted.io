@@ -46,13 +46,14 @@ void Game::InitGame()
 	player.InitPlayer(gameColors);
 	Map currentMap(gameColors);
 	GameFont gameFont;
+	gameFont.LoadFont();
 	Menu menu(gameFont, gameWindow);
+
 	GameCamera gameCamera(gameWindow);
 
 	GameState currentGameState = GameState::Menu;
 
 
-	gameFont.LoadFont();
 	
 	while (gameWindow.window.isOpen())
 	{
