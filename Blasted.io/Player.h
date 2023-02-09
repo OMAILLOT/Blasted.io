@@ -4,8 +4,9 @@
 #include "input.h"
 #include "Colors.h"
 #include "GameState.h"
-//#include "Main.h"
 
+//#include "Main.h"
+class GameWindow;
 using namespace std;
 
 class Player {
@@ -24,6 +25,8 @@ public:
 	void PlayerMovement();
 	sf::Vector2f normalize(sf::Vector2f vector);
 	void CheckInput(GameState& gameState);
+	void RotateCanon(GameWindow& window);
+	void InitPlayerPosition(float x, float y);
 
 };
 

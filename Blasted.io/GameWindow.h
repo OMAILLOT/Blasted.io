@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
-
 #include "Player.h"
 
 class GameCamera;

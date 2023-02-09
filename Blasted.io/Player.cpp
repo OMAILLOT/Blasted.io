@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Map.h"
+#include <cmath>
+#include <iostream>
 
 
 Player::Player()
@@ -20,6 +22,8 @@ void Player::InitPlayer(GameColors& gameColors) {
 	canon.setFillColor(gameColors.canonColor);
 	canon.setOutlineColor(gameColors.canonColorOutline);
 	canon.setOutlineThickness(2);
+
+
 	//gameWindow->InitPlayerOnWindow();
 }
 
@@ -87,4 +91,23 @@ void Player::CheckInput(GameState& gameState) {
 	if (playerInput.GetButton().up == false && playerInput.GetButton().down == false) playerSpeed.y = 0;
 }
 
+void Player::RotateCanon(GameWindow& window)
+{
+	sf::Vector2f curPos = playerRenderer.getPosition();
+	sf::Vector2f position = window.window.mapPixelToCoords(sf::Mouse::getPosition());
+	float mouseAngle = -atan2(position.x - playerRenderer.getPosition().x, position.y - playerRenderer.getPosition().y) * 180 / 3.14159; //angle in degrees of rotation for sprite
 
+	std::cout << mouseAngle << "\n";
+	canon.setRotation(mouseAngle);
+}
+
+void Player::InitPlayerPosition(float X, float Y)
+{
+	playerRenderer.setPosition(X, Y);
+	//canon.setOrigin((canon.getLocalBounds().width - canon.getOutlineThickness() * 2) / 2,0);
+	//canon.setOrigin(canon.getSize().x / 2, canon.getSize().y / 2);
+	canon.setPosition(X + playerRenderer.getRadius() - (canon.getLocalBounds().width - canon.getOutlineThickness() * 2) / 2, Y + playerRenderer.getRadius());
+	//canon.setOrigin(canon.getTexture()->getSize().x / 2, canon.getTexture()->getSize().y / 2);
+	
+
+}

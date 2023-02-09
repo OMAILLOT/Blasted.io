@@ -79,6 +79,7 @@ void Game::InitGame()
 			player.CheckInput(currentGameState);
 
 			player.PlayerMovement();
+			player.RotateCanon(gameWindow);
 
 			gameCamera.LerpCamera(player,gameWindow);
 
