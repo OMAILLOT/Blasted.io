@@ -13,30 +13,12 @@ const int WIN_WIDTH = 1280;
 const int WIN_HEIGHT = 720;
 
 Game g;
-//GameState currentGameState;
-//GameWindow* gameWindow;
-//Player* player;
-//Map* currentMap;
-//GameFont* gameFont;
-//Menu* menu;
-//GameColors* gameColors;
-//Camera* gameCamera;
+
 int main()
 {	
 	g.InitGame();
 
 }
-
-//void InitGame() {
-//	currentGameState = GameState::Menu;
-//	gameColors = new GameColors();
-//	player = new Player();
-//	gameWindow = new GameWindow();
-//	gameCamera = new Camera();
-//	currentMap = new Map();
-//	gameFont = new GameFont();
-//	menu = new Menu();
-//}
 
 void Game::InitGame()
 {
