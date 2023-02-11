@@ -63,6 +63,9 @@
     <ClCompile Include="Tools.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Tools.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
