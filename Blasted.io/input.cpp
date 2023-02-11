@@ -17,16 +17,16 @@ void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
 	{
 		switch (event.key.code)
 		{
-		case sf::Keyboard::Left:
+		case sf::Keyboard::Q:
 			btn.left = true;
 			break;
-		case sf::Keyboard::Right:
+		case sf::Keyboard::D:
 			btn.right = true;
 			break;
-		case sf::Keyboard::Down:
+		case sf::Keyboard::S:
 			btn.down = true;
 			break;
-		case sf::Keyboard::Up:
+		case sf::Keyboard::Z:
 			btn.up = true;
 			break;
 		case sf::Keyboard::Escape:
@@ -40,16 +40,16 @@ void Input::InputHandler(sf::Event& event, sf::RenderWindow& window)
 	{
 		switch (event.key.code)
 		{
-		case sf::Keyboard::Left:
+		case sf::Keyboard::Q:
 			btn.left = false;
 			break;
-		case sf::Keyboard::Right:
+		case sf::Keyboard::D:
 			btn.right = false;
 			break;
-		case sf::Keyboard::Down:
+		case sf::Keyboard::S:
 			btn.down = false;
 			break;
-		case sf::Keyboard::Up:
+		case sf::Keyboard::Z:
 			btn.up = false;
 			break;
 		case sf::Keyboard::Escape:

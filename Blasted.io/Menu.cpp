@@ -56,18 +56,18 @@ Menu::Menu(GameFont& gameFont, GameWindow& win)
 
 void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameState, GameWindow& win)
 {
-	if (event.type == sf::Event::KeyPressed)
+	if (event.type == sf::Event::KeyReleased)
 	{
 		if (!startGameKeyPressed)
 		{
 			startGameKeyPressed = true;
 
-			if (event.key.code == sf::Keyboard::Up)
+			if (event.key.code == sf::Keyboard::Z)
 			{
 				if (selectedItem > 0)
 					selectedItem--;
 			}
-			else if (event.key.code == sf::Keyboard::Down)
+			else if (event.key.code == sf::Keyboard::S)
 			{
 				if (selectedItem < 2)
 					selectedItem++;
