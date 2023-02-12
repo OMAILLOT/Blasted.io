@@ -4,6 +4,7 @@
 #include "input.h"
 #include "Colors.h"
 #include "GameState.h"
+#include "Bullet.h"
 
 //#include "Main.h"
 class GameWindow;
@@ -16,6 +17,8 @@ public:
 	sf::RectangleShape canon;
 	sf::CircleShape playerRenderer;
 	sf::Vector2f playerSpeed;
+	vector<Bullet*> magasin;
+
 	const int PLAYER_SPEED = 2;
 
 
@@ -23,7 +26,6 @@ public:
 	~Player();
 	void InitPlayer(GameColors& gameColors);
 	void PlayerMovement();
-	sf::Vector2f normalize(sf::Vector2f vector);
 	void CheckInput(GameState& gameState);
 	void RotateCanon(GameWindow& window);
 	void InitPlayerPosition(float x, float y);

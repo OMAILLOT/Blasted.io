@@ -17,7 +17,7 @@ public:
 	void InputHandler(sf::Event& event, sf::RenderWindow& window);
 
 
-private:
+public:
 	Button btn;
 };
 

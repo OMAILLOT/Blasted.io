@@ -2,7 +2,8 @@
 #include "Map.h"
 #include <cmath>
 #include <iostream>
-
+#include "Tools.h"
+GameColors gameColors;
 
 Player::Player()
 {
@@ -12,7 +13,8 @@ Player::~Player()
 {
 }
 
-void Player::InitPlayer(GameColors& gameColors) {
+void Player::InitPlayer(GameColors& _gameColors) {
+	gameColors = _gameColors;
 	playerRenderer.setRadius(25.f);
 	playerRenderer.setFillColor(gameColors.blue);
 	playerRenderer.setOutlineColor(gameColors.playerOutline);
@@ -29,23 +31,13 @@ void Player::InitPlayer(GameColors& gameColors) {
 
 void Player::PlayerMovement()
 {
-
-	playerSpeed = normalize(playerSpeed);
+	playerSpeed = tools::normalize(playerSpeed);
 	
 	playerSpeed.x *= PLAYER_SPEED;
 	playerSpeed.y *= PLAYER_SPEED;
 
 	playerRenderer.move(playerSpeed);
 	canon.move(playerSpeed);
-}
-
-sf::Vector2f Player::normalize(sf::Vector2f vector) {
-	float length = sqrt((vector.x * vector.x) + (vector.y * vector.y));
-	if (length != 0)
-		return sf::Vector2f(vector.x / length, vector.y / length);
-	else
-		return vector;
-	return sf::Vector2f();
 }
 
 void Player::CheckInput(GameState& gameState) {
@@ -81,6 +73,16 @@ void Player::CheckInput(GameState& gameState) {
 	}
 	if (playerInput.GetButton().attack == true)
 	{
+
+		playerInput.btn.attack = false;
+		sf::Vector2f bulletPosition(
+			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
+			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
+		);
+
+		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation());
+		std::cout << newBullet->bulletShape.getPosition().x << ", "<< newBullet->bulletShape.getPosition().y << "\n";
+		magasin.push_back(newBullet);
 	}
 	if (playerInput.GetButton().exit == true)
 	{

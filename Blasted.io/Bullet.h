@@ -3,9 +3,11 @@
 #include "Colors.h"
 class Bullet
 {
+public:
+	sf::Vector2f bulletSpeed;
 	sf::CircleShape bulletShape;
-	Bullet(GameColors& gameColors);
+	Bullet(GameColors& gameColors, sf::Vector2f position, float rotation);
 	~Bullet();
-	void BulletMoove(float bulletSpeed);
+	void BulletMoove();
 };
 

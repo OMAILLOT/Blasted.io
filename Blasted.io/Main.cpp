@@ -65,6 +65,11 @@ void Game::InitGame()
 
 			gameCamera.LerpCamera(player,gameWindow);
 
+			for (Bullet* bullet : player.magasin)
+			{
+				gameWindow.window.draw(bullet->bulletShape);
+				bullet->BulletMoove();
+			}
 			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);
 		}
