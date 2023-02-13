@@ -25,6 +25,7 @@ public:
 	Player();
 	~Player();
 	void InitPlayer(GameColors& gameColors);
+	void PlayerLoop(GameState& gameState, GameWindow& window);
 	void PlayerMovement();
 	void CheckInput(GameState& gameState);
 	void RotateCanon(GameWindow& window);

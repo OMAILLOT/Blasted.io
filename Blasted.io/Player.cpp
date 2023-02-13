@@ -29,6 +29,13 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	//gameWindow->InitPlayerOnWindow();
 }
 
+void Player::PlayerLoop(GameState& gameState, GameWindow& window)
+{
+	CheckInput(gameState);
+	PlayerMovement();
+	RotateCanon(window);
+}
+
 void Player::PlayerMovement()
 {
 	playerSpeed = tools::normalize(playerSpeed);
