@@ -18,7 +18,7 @@ public:
 	sf::CircleShape playerRenderer;
 	sf::Vector2f playerSpeed;
 	vector<Bullet*> magasin;
-
+	sf::Clock timerForShoot;
 	const int PLAYER_SPEED = 2;
 
 
@@ -30,7 +30,8 @@ public:
 	void CheckInput(GameState& gameState);
 	void RotateCanon(GameWindow& window);
 	void InitPlayerPosition(float x, float y);
-
+	void Shoot();
+	bool WaitBeforeShoot();
 };
 
 #endif

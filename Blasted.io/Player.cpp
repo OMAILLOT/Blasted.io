@@ -25,6 +25,7 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	canon.setOutlineColor(gameColors.canonColorOutline);
 	canon.setOutlineThickness(2);
 
+	timerForShoot;
 
 	//gameWindow->InitPlayerOnWindow();
 }
@@ -80,16 +81,7 @@ void Player::CheckInput(GameState& gameState) {
 	}
 	if (playerInput.GetButton().attack == true)
 	{
-
-		playerInput.btn.attack = false;
-		sf::Vector2f bulletPosition(
-			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
-			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
-		);
-
-		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation());
-		std::cout << newBullet->bulletShape.getPosition().x << ", "<< newBullet->bulletShape.getPosition().y << "\n";
-		magasin.push_back(newBullet);
+		Shoot();
 	}
 	if (playerInput.GetButton().exit == true)
 	{
@@ -116,4 +108,27 @@ void Player::InitPlayerPosition(float X, float Y)
 
 	canon.setPosition(X + playerRenderer.getRadius(), Y + playerRenderer.getRadius());	
 
+}
+
+void Player::Shoot() {
+	if (WaitBeforeShoot()) {
+		sf::Vector2f bulletPosition(
+			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
+			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
+		);
+
+		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation());
+		std::cout << newBullet->bulletShape.getPosition().x << ", " << newBullet->bulletShape.getPosition().y << "\n";
+		magasin.push_back(newBullet);
+	}
+}
+
+bool Player::WaitBeforeShoot() {
+	if (timerForShoot.getElapsedTime().asSeconds() >= 1) {
+		timerForShoot.restart();
+		return true;
+	}
+	else {
+		return false;
+	}
 }

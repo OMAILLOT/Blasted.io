@@ -56,13 +56,6 @@ void Game::InitGame()
 		}
 		else if (currentGameState == GameState::Game)
 		{
-			sf::Clock clock; // starts the clock
-			//GameLoop
-			//	sf::Time elapsed1 = clock.getElapsedTime();
-			//std::cout << elapsed1.asSeconds() << std::endl;
-			//	sf::Time elapsed2 = clock.getElapsedTime();
-			//std::cout << elapsed2.asSeconds() << std::endl;
-
 			player.PlayerLoop(currentGameState, gameWindow);
 
 			gameCamera.LerpCamera(player,gameWindow);
