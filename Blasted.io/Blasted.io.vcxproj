@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -162,11 +162,13 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Enemis.cpp" />
     <ClCompile Include="GameFont.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MeleeEnemi.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="GameState.h" />
@@ -176,11 +178,13 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Colors.h" />
+    <ClInclude Include="Enemis.h" />
     <ClInclude Include="GameFont.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MeleeEnemi.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Tools.h" />

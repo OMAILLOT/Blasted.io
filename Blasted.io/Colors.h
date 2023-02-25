@@ -12,4 +12,7 @@ struct GameColors {
 
 	sf::Color canonColor{ sf::Color(153,153,153) };
 	sf::Color canonColorOutline{ sf::Color(114,114,114) };
+
+	sf::Color enemyColor{ sf::Color(241,78,84) };
+	sf::Color enemyColorOutline{ sf::Color(83,83,83) };
 };
