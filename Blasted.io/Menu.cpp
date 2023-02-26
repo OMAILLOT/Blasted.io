@@ -72,7 +72,6 @@ void Menu::HandleMenuInput(sf::Event& event, Player& player, GameState& gameStat
 				if (selectedItem < 2)
 					selectedItem++;
 			}
-
 		}
 	}
 	else

@@ -5,6 +5,7 @@
 #include "GameWindow.h"
 class EnnemisManager
 {
+    EnnemisManager();
 public :
 	sf::Clock clockDelayOnSpawnEnemy;
 	sf::Clock clockSafeTimeBetweenRound;
@@ -12,10 +13,18 @@ public :
 	float delayOnSpawnEnemy;
 	float delaySafeTimeBetweenRound;
 
+
 	vector<MeleeEnemi*> ennemisInScene;
-	EnnemisManager();
-	~EnnemisManager();
+
 	void TimeToSpawnEnnemy(GameColors& gameColors, Player& player);
 	void AllEnnemisMovement(GameWindow& gameWindow, Player& player);
-};
 
+
+	static EnnemisManager* instancePtr;
+	EnnemisManager(const EnnemisManager& obj) = delete;
+    static EnnemisManager& getInstance()
+    {
+		static EnnemisManager INSTANCE;
+		return INSTANCE;
+    }
+};

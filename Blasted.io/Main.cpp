@@ -35,9 +35,7 @@ void Game::InitGame()
 	GameCamera gameCamera(gameWindow);
 
 	GameState currentGameState = GameState::Menu;
-
-	EnnemisManager ennemisManager;
-
+	EnnemisManager& ennemisManager = EnnemisManager::getInstance();
 
 	
 	while (gameWindow.window.isOpen())
@@ -66,10 +64,10 @@ void Game::InitGame()
 			for (Bullet* bullet : player.magasin)
 			{
 				gameWindow.window.draw(bullet->bulletShape);
-				bullet->BulletMoove();
+				bullet->BulletMoove(player.magasin);
 			}
 
-			ennemisManager.TimeToSpawnEnnemy(gameColors,player);
+			ennemisManager.TimeToSpawnEnnemy(gameColors, player);
 			ennemisManager.AllEnnemisMovement(gameWindow,player);
 			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);

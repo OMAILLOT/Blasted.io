@@ -111,7 +111,7 @@ void Player::InitPlayerPosition(float X, float Y)
 }
 
 void Player::Shoot() {
-	if (tools::IsDelayIsExceeded(timerForShoot, 1)) {
+	if (tools::IsDelayIsExceeded(timerForShoot, 0.7f)) {
 		sf::Vector2f bulletPosition(
 			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
 			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
