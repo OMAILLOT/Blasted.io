@@ -1,9 +1,9 @@
 #include "Enemis.h"
 
-void Enemis::EnemyMovement()
+void Ennemis::EnnemyMovement()
 {
 }
 
-void Enemis::OnCollisionEnter()
+void Ennemis::OnCollisionEnter()
 {
 }

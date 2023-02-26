@@ -8,6 +8,7 @@
 #include "GameFont.h"
 #include "GameState.h"
 #include "Camera.h"
+#include "EnnemisManager.h"
 
 const int WIN_WIDTH = 1280;
 const int WIN_HEIGHT = 720;
@@ -34,6 +35,8 @@ void Game::InitGame()
 	GameCamera gameCamera(gameWindow);
 
 	GameState currentGameState = GameState::Menu;
+
+	EnnemisManager ennemisManager;
 
 
 	
@@ -65,6 +68,9 @@ void Game::InitGame()
 				gameWindow.window.draw(bullet->bulletShape);
 				bullet->BulletMoove();
 			}
+
+			ennemisManager.TimeToSpawnEnnemy(gameColors,player);
+			ennemisManager.AllEnnemisMovement(gameWindow,player);
 			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);
 		}

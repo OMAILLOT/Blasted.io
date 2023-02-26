@@ -31,7 +31,6 @@ public:
 	void RotateCanon(GameWindow& window);
 	void InitPlayerPosition(float x, float y);
 	void Shoot();
-	bool WaitBeforeShoot();
 };
 
 #endif

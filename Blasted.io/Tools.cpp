@@ -17,3 +17,14 @@ sf::Vector2f tools::normalize(sf::Vector2f vector)
 		return vector;
 	return sf::Vector2f();
 }
+
+bool tools::IsDelayIsExceeded(sf::Clock& currentClock, float delay)
+{
+	if (currentClock.getElapsedTime().asSeconds() >= delay) {
+		currentClock.restart();
+		return true;
+	}
+	else {
+		return false;
+	}
+}

@@ -1,10 +1,12 @@
 #pragma once
 #include "Enemis.h"
-class MeleeEnemi : public Enemis
+#include "Player.h"
+class MeleeEnemi : public Ennemis
 {
-	MeleeEnemi(GameColors& gameColors);
+public:
+	MeleeEnemi(GameColors& gameColors, sf::Vector2f position, float rotation);
 	~MeleeEnemi();
-	void EnemyMovement(sf::Vector2f positionToGo);
+	void MeleeEnemyMovement(sf::Vector2f positionToGo, Player& player);
 	void OnCollisionEnter();
 
 };

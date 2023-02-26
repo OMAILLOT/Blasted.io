@@ -111,24 +111,13 @@ void Player::InitPlayerPosition(float X, float Y)
 }
 
 void Player::Shoot() {
-	if (WaitBeforeShoot()) {
+	if (tools::IsDelayIsExceeded(timerForShoot, 1)) {
 		sf::Vector2f bulletPosition(
 			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
 			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
 		);
 
 		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation());
-		std::cout << newBullet->bulletShape.getPosition().x << ", " << newBullet->bulletShape.getPosition().y << "\n";
 		magasin.push_back(newBullet);
-	}
-}
-
-bool Player::WaitBeforeShoot() {
-	if (timerForShoot.getElapsedTime().asSeconds() >= 1) {
-		timerForShoot.restart();
-		return true;
-	}
-	else {
-		return false;
 	}
 }

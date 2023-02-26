@@ -163,6 +163,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemis.cpp" />
+    <ClCompile Include="EnnemisManager.cpp" />
     <ClCompile Include="GameFont.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="input.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="Enemis.h" />
+    <ClInclude Include="EnnemisManager.h" />
     <ClInclude Include="GameFont.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Main.h" />
