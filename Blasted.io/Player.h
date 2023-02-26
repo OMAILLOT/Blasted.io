@@ -13,7 +13,8 @@ using namespace std;
 class Player {
 
 public:
-	int playerLife = 3;
+	int lifePoint = 3;
+	int originalLifePoint;
 	Input playerInput;
 	sf::RectangleShape canon;
 	sf::CircleShape playerRenderer;

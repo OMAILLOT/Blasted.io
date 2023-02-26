@@ -55,9 +55,10 @@ void MeleeEnemi::DetectCollision(Player& player)
 
 	if (enemiRenderer.getGlobalBounds().intersects(player.playerRenderer.getGlobalBounds()))
 	{
-		player.playerLife--;
+		player.lifePoint--;
 		for (int j = 0; j < ennemisManager.ennemisInScene.size(); j++) {
 			if (ennemisManager.ennemisInScene[j] == this) {
+				player.playerRenderer.setRadius(player.playerRenderer.getRadius() / (player.originalLifePoint / 2.8f));
 				ennemisManager.ennemisInScene[j]->~MeleeEnemi();
 				ennemisManager.ennemisInScene.erase(ennemisManager.ennemisInScene.begin() + j);
 				return;
@@ -65,27 +66,4 @@ void MeleeEnemi::DetectCollision(Player& player)
 		}
 	}
 }
-
-//void MeleeEnemi::feedBackHit(sf::Clock feedBackClock, float BaseRadius) {
-//	
-//	bool isReturnToNormalForm = false;
-//
-//	while (enemiRenderer.getRadius() <= BaseRadius * 5) {
-//
-//		if (enemiRenderer.getRadius() <= BaseRadius * 0.1f || isReturnToNormalForm) {
-//			isReturnToNormalForm = true;
-//			enemiRenderer.setRadius(enemiRenderer.getRadius() * 1.1);
-//			std::cout << "yo";
-//
-//			if (enemiRenderer.getRadius() >= BaseRadius) {
-//				return;
-//			}
-//		}
-//		else {
-//			if (!isReturnToNormalForm) {
-//				enemiRenderer.setRadius(enemiRenderer.getRadius() * 0.8);
-//			}
-//		}
-//	}
-//}
 

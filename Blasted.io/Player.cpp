@@ -26,7 +26,7 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	canon.setOutlineThickness(2);
 
 	timerForShoot;
-
+	originalLifePoint = lifePoint;
 	//gameWindow->InitPlayerOnWindow();
 }
 
