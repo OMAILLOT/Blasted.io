@@ -58,7 +58,7 @@ void MeleeEnemi::DetectCollision(Player& player)
 		player.lifePoint--;
 		for (int j = 0; j < ennemisManager.ennemisInScene.size(); j++) {
 			if (ennemisManager.ennemisInScene[j] == this) {
-				player.playerRenderer.setRadius(player.playerRenderer.getRadius() / (player.originalLifePoint / 2.8f));
+				//player.playerRenderer.setRadius(player.playerRenderer.getRadius() / (player.originalLifePoint / 2.8f));
 				ennemisManager.ennemisInScene[j]->~MeleeEnemi();
 				ennemisManager.ennemisInScene.erase(ennemisManager.ennemisInScene.begin() + j);
 				return;
