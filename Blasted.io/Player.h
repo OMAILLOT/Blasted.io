@@ -22,8 +22,6 @@ public:
 	vector<Bullet*> magasin;
 	sf::Clock timerForShoot;
 	const int PLAYER_SPEED = 2;
-
-
 	Player();
 	~Player();
 	void InitPlayer(GameColors& gameColors);
@@ -33,6 +31,7 @@ public:
 	void RotateCanon(GameWindow& window);
 	void InitPlayerPosition(float x, float y);
 	void Shoot();
+	void UpdatePlayerLife(GameState& gameState);
 };
 
 #endif

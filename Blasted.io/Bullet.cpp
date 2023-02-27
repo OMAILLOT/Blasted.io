@@ -8,7 +8,7 @@ Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation)
 {
 	
 	bulletShape.setRadius(10);
-	bulletShape.setFillColor(gameColors.blue);
+	bulletShape.setFillColor(gameColors.PlayerColor);
 	bulletShape.setOutlineColor(gameColors.playerOutline);
 	bulletShape.setOutlineThickness(1);
 	bulletShape.setOrigin(bulletShape.getRadius(), bulletShape.getRadius());

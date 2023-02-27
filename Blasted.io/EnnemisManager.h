@@ -17,7 +17,7 @@ public :
 	vector<MeleeEnemi*> ennemisInScene;
 
 	void TimeToSpawnEnnemy(GameColors& gameColors, Player& player);
-	void AllEnnemisMovement(GameWindow& gameWindow, Player& player);
+	void AllEnnemisMovement(GameWindow& gameWindow, Player& player, GameColors& gamecolors, GameState& gameState);
 
 
 	static EnnemisManager* instancePtr;

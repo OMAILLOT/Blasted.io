@@ -25,7 +25,7 @@ void EnnemisManager::TimeToSpawnEnnemy(GameColors& gameColors, Player& player)
 	}
 }
 
-void EnnemisManager::AllEnnemisMovement(GameWindow& gameWindow, Player& player)
+void EnnemisManager::AllEnnemisMovement(GameWindow& gameWindow, Player& player, GameColors& gamecolors, GameState& gameState)
 {
 	for (MeleeEnemi* ennemy : ennemisInScene)
 	{
@@ -33,6 +33,6 @@ void EnnemisManager::AllEnnemisMovement(GameWindow& gameWindow, Player& player)
 		sf::Vector2f playerPosition(
 			player.playerRenderer.getPosition().x + player.playerRenderer.getRadius() + player.playerRenderer.getOrigin().x + player.playerRenderer.getOutlineThickness(),
 			player.playerRenderer.getPosition().y + player.playerRenderer.getRadius() + player.playerRenderer.getOrigin().x + player.playerRenderer.getOutlineThickness());
-		ennemy->MeleeEnemyMovement(playerPosition, player);
+		ennemy->MeleeEnemyMovement(playerPosition, player, gamecolors, gameState);
 	}
 }

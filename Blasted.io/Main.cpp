@@ -21,10 +21,12 @@ int main()
 
 }
 
+
 void Game::InitGame()
 {
 	GameWindow gameWindow;
 	GameColors gameColors;
+	GameState currentGameState = GameState::Menu;
 	Player player;
 	player.InitPlayer(gameColors);
 	Map currentMap(gameColors);
@@ -34,7 +36,6 @@ void Game::InitGame()
 
 	GameCamera gameCamera(gameWindow);
 
-	GameState currentGameState = GameState::Menu;
 	EnnemisManager& ennemisManager = EnnemisManager::getInstance();
 
 	
@@ -68,7 +69,7 @@ void Game::InitGame()
 			}
 
 			ennemisManager.TimeToSpawnEnnemy(gameColors, player);
-			ennemisManager.AllEnnemisMovement(gameWindow,player);
+			ennemisManager.AllEnnemisMovement(gameWindow,player, gameColors, currentGameState);
 			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);
 		}

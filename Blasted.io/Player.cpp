@@ -5,6 +5,7 @@
 #include "Tools.h"
 GameColors gameColors;
 
+
 Player::Player()
 {
 }
@@ -16,7 +17,7 @@ Player::~Player()
 void Player::InitPlayer(GameColors& _gameColors) {
 	gameColors = _gameColors;
 	playerRenderer.setRadius(25.f);
-	playerRenderer.setFillColor(gameColors.blue);
+	playerRenderer.setFillColor(gameColors.PlayerColor);
 	playerRenderer.setOutlineColor(gameColors.playerOutline);
 	playerRenderer.setOutlineThickness(2);
 
@@ -24,7 +25,7 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	canon.setFillColor(gameColors.canonColor);
 	canon.setOutlineColor(gameColors.canonColorOutline);
 	canon.setOutlineThickness(2);
-
+	gameColors = _gameColors;
 	timerForShoot;
 	originalLifePoint = lifePoint;
 	//gameWindow->InitPlayerOnWindow();
@@ -49,7 +50,7 @@ void Player::PlayerMovement()
 }
 
 void Player::CheckInput(GameState& gameState) {
-
+	
 	if (playerInput.GetButton().left == true)
 	{
 		playerSpeed.x = -PLAYER_SPEED;
@@ -121,3 +122,11 @@ void Player::Shoot() {
 		magasin.push_back(newBullet);
 	}
 }
+
+void Player::UpdatePlayerLife(GameState& gameState)
+{
+		lifePoint--;
+		if (lifePoint >= 0) playerRenderer.setFillColor(gameColors.PlayerHitColors[lifePoint]);
+		else gameState = GameState::Menu;
+}
+
