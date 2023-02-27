@@ -4,7 +4,7 @@
 #include "Player.h"
 
 
-Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation)
+Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation,float increaseBulletSpeed)
 {
 	delay = 1.5f;
 	bulletShape.setRadius(10);
@@ -14,6 +14,7 @@ Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation)
 	bulletShape.setOrigin(bulletShape.getRadius(), bulletShape.getRadius());
 	bulletShape.setPosition(position);
 	bulletShape.setRotation(rotation);
+	bulletSpeedIncrease = 5 + increaseBulletSpeed;
 }
 
 Bullet::~Bullet()
@@ -22,8 +23,8 @@ Bullet::~Bullet()
 
 void Bullet::BulletMoove(vector<Bullet*>& playerMagasin)
 {
-	float velx = -sin((3.14 / 180) * bulletShape.getRotation()) * 5;
-	float vely = cos((3.14 / 180) * bulletShape.getRotation()) * 5;
+	float velx = -sin((3.14 / 180) * bulletShape.getRotation()) * bulletSpeedIncrease;
+	float vely = cos((3.14 / 180) * bulletShape.getRotation()) * bulletSpeedIncrease;
 	bulletShape.move(velx, vely);
 	TimeBeforeDestroyBullet(playerMagasin);
 }

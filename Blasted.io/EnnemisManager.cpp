@@ -10,7 +10,10 @@ EnnemisManager::EnnemisManager()
 	delaySafeTimeBetweenRound = 13;
 	speedEnnemisIncrease = 1;
 	numberOfEnnemisLevelUp = 6;
-	delayBeforeLevelUpEnnemis = 10;
+	delayBeforeLevelUpEnnemis = 12;
+
+	sizeEnnemisIncrease = 1;
+	lifePointEnnemisIncrease = 0;
 }
 
 void EnnemisManager::TimeToSpawnEnnemy(GameColors& gameColors, Player& player)
@@ -23,7 +26,7 @@ void EnnemisManager::TimeToSpawnEnnemy(GameColors& gameColors, Player& player)
 
 		std::cout << dis(gen) * (rand() % 100) << endl;
 		float enemiRotation = - atan2(player.playerRenderer.getPosition().x, player.playerRenderer.getPosition().y) * 180 / 3.14159; //angle in degrees of rotation for sprite
-		MeleeEnemi* currentMeleeEnemi = new MeleeEnemi(gameColors, enemiPosition, enemiRotation, speedEnnemisIncrease);
+		MeleeEnemi* currentMeleeEnemi = new MeleeEnemi(gameColors, enemiPosition, enemiRotation, speedEnnemisIncrease, sizeEnnemisIncrease, lifePointEnnemisIncrease);
 		ennemisInScene.push_back(currentMeleeEnemi);
 	}
 }
@@ -47,6 +50,8 @@ void EnnemisManager::TimeToLevelUpEnnemis()
 			numberOfEnnemisLevelUp--;
 			delayOnSpawnEnemy *= 0.8f;
 			speedEnnemisIncrease *= 1.2f;
+			sizeEnnemisIncrease += 4;
+			lifePointEnnemisIncrease++;
 		}
 	}
 

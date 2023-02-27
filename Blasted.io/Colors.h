@@ -14,7 +14,7 @@ struct GameColors {
 	vector<sf::Color> PlayerHitColors{
 	sf::Color(241,78,84),
 	sf::Color(251, 153, 51),
-	sf::Color(255, 255, 51) };
+	sf::Color(236,213,3) };
 
 	sf::Color canonColor{ sf::Color(153,153,153) };
 	sf::Color canonColorOutline{ sf::Color(114,114,114) };

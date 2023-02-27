@@ -34,6 +34,7 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	delayOnShoot = 0.85f;
 	numberOfLevelUp = 5;
 	speedIncrease = 1;
+	increaseBulletSpeed = 0;
 }
 
 void Player::PlayerLoop(GameState& gameState, GameWindow& window)
@@ -123,16 +124,16 @@ void Player::Shoot() {
 			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
 		);
 
-		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation());
+		Bullet* newBullet = new Bullet(gameColors, bulletPosition, canon.getRotation(), increaseBulletSpeed);
 		magasin.push_back(newBullet);
 	}
 }
 
 void Player::UpdatePlayerLife(GameState& gameState)
 {
-		lifePoint--;
-		if (lifePoint > 0) playerRenderer.setFillColor(gameColors.PlayerHitColors[lifePoint]);
-		else gameState = GameState::Menu;
+	lifePoint--;
+	if (lifePoint > 0) playerRenderer.setFillColor(gameColors.PlayerHitColors[lifePoint]);
+	else gameState = GameState::Menu;
 }
 
 void Player::ennemisDestroy()
@@ -141,8 +142,11 @@ void Player::ennemisDestroy()
 		ennemiesDestroyBeforeLevelUp--;
 		if (ennemiesDestroyBeforeLevelUp <= 0) {
 			ennemiesDestroyBeforeLevelUp = baseEnnemiesDestroyBeforeLevelUp;
-			delayOnShoot *= 0.65f;
-			speedIncrease += 1;
+
+			canon.setSize(sf::Vector2f(canon.getSize().x, canon.getSize().y + 5));
+			delayOnShoot -= 0.15f;
+			speedIncrease++;
+			increaseBulletSpeed++;
 			numberOfLevelUp--;
 		}
 	}

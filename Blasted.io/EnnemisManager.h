@@ -18,7 +18,8 @@ public :
 	float delayBeforeLevelUpEnnemis;
 
 	float speedEnnemisIncrease;
-
+	float sizeEnnemisIncrease;
+	int lifePointEnnemisIncrease;
 
 	vector<MeleeEnemi*> ennemisInScene;
 

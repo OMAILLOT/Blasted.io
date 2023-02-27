@@ -28,6 +28,7 @@ public:
 	sf::Clock timerForShoot;
 	float delayOnShoot;
 
+	float increaseBulletSpeed;
 	int ennemiesDestroyBeforeLevelUp;
 	int baseEnnemiesDestroyBeforeLevelUp;
 	int numberOfLevelUp;

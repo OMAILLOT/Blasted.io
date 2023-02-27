@@ -3,25 +3,25 @@
 #include "EnnemisManager.h"
 #include <iostream>
 
-MeleeEnemi::MeleeEnemi(GameColors& gameColors,sf::Vector2f position, float rotation, float speedEnnemisIncrease) {
-	healthPoint = 3;
+MeleeEnemi::MeleeEnemi(GameColors& gameColors,sf::Vector2f position, float rotation, float speedEnnemisIncrease, float sizeEnnemisIncrease, int lifePointEnnemisIncrease) {
+	healthPoint = 3 + lifePointEnnemisIncrease;
 	originalLifePoint = healthPoint;
 	speed = 1;
 	enemiRenderer.setOrigin(enemiRenderer.getRadius(), enemiRenderer.getOutlineThickness());
-	enemiRenderer.setRadius(25.f);
+	enemiRenderer.setRadius(25.f + sizeEnnemisIncrease);
 	enemiRenderer.setFillColor(gameColors.enemyColor);
 	enemiRenderer.setOutlineColor(gameColors.playerOutline);
 	enemiRenderer.setOutlineThickness(2);
 	enemiRenderer.setPosition(position);
 	enemiRenderer.setRotation(rotation);
 	speed *= speedEnnemisIncrease;
+	radiusToDecrease = enemiRenderer.getRadius() / originalLifePoint;
 }
 
 MeleeEnemi::~MeleeEnemi()
 {
 
 }
-
 void MeleeEnemi::MeleeEnemyMovement(sf::Vector2f positionToGo, Player& player, GameColors& gameColors, GameState& gameState)
 {
 	float angleOnPlayer = -atan2(positionToGo.x - (enemiRenderer.getPosition().x + enemiRenderer.getRadius()), positionToGo.y - enemiRenderer.getPosition().y - enemiRenderer.getRadius()) * 180 / 3.14159; //angle in degrees of rotation for sprite
@@ -43,7 +43,7 @@ void MeleeEnemi::DetectCollision(Player& player, GameState& gameState)
 			for (int j = 0; j < ennemisManager.ennemisInScene.size(); j++) {
 				if (ennemisManager.ennemisInScene[j] == this) {
 					healthPoint--;
-					enemiRenderer.setRadius(enemiRenderer.getRadius() / (originalLifePoint / 1.8f));
+					enemiRenderer.setRadius(enemiRenderer.getRadius() - radiusToDecrease);
 					if (healthPoint <= 0) {
 						player.ennemisDestroy();
 						ennemisManager.ennemisInScene[j]->~MeleeEnemi();
@@ -61,7 +61,7 @@ void MeleeEnemi::DetectCollision(Player& player, GameState& gameState)
 		for (int j = 0; j < ennemisManager.ennemisInScene.size(); j++) {
 			if (ennemisManager.ennemisInScene[j] == this) {
 				//player.playerRenderer.setRadius(player.playerRenderer.getRadius() / (player.originalLifePoint / 2.8f));
-				ennemisManager.ennemisInScene[j]->~MeleeEnemi();
+				delete(ennemisManager.ennemisInScene[j]);
 				ennemisManager.ennemisInScene.erase(ennemisManager.ennemisInScene.begin() + j);
 				return;
 			}
