@@ -50,11 +50,11 @@ void Game::InitGame()
 
 		if (currentGameState == GameState::Menu)
 		{
+			gameCamera.camera.setCenter(0,0);
 
 			menu.HandleMenuInput(event,player,currentGameState,gameWindow);
 
 			menu.DrawMenu(gameWindow);
-
 		}
 		else if (currentGameState == GameState::Game)
 		{
@@ -70,6 +70,7 @@ void Game::InitGame()
 
 			ennemisManager.TimeToSpawnEnnemy(gameColors, player);
 			ennemisManager.AllEnnemisMovement(gameWindow,player, gameColors, currentGameState);
+			ennemisManager.TimeToLevelUpEnnemis();
 			gameWindow.window.draw(player.canon);
 			gameWindow.window.draw(player.playerRenderer);
 		}

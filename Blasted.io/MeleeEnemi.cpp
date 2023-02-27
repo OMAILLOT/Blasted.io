@@ -3,7 +3,7 @@
 #include "EnnemisManager.h"
 #include <iostream>
 
-MeleeEnemi::MeleeEnemi(GameColors& gameColors,sf::Vector2f position, float rotation) {
+MeleeEnemi::MeleeEnemi(GameColors& gameColors,sf::Vector2f position, float rotation, float speedEnnemisIncrease) {
 	healthPoint = 3;
 	originalLifePoint = healthPoint;
 	speed = 1;
@@ -14,6 +14,7 @@ MeleeEnemi::MeleeEnemi(GameColors& gameColors,sf::Vector2f position, float rotat
 	enemiRenderer.setOutlineThickness(2);
 	enemiRenderer.setPosition(position);
 	enemiRenderer.setRotation(rotation);
+	speed *= speedEnnemisIncrease;
 }
 
 MeleeEnemi::~MeleeEnemi()
@@ -44,6 +45,7 @@ void MeleeEnemi::DetectCollision(Player& player, GameState& gameState)
 					healthPoint--;
 					enemiRenderer.setRadius(enemiRenderer.getRadius() / (originalLifePoint / 1.8f));
 					if (healthPoint <= 0) {
+						player.ennemisDestroy();
 						ennemisManager.ennemisInScene[j]->~MeleeEnemi();
 						ennemisManager.ennemisInScene.erase(ennemisManager.ennemisInScene.begin() + j);
 					}

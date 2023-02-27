@@ -29,6 +29,11 @@ void Player::InitPlayer(GameColors& _gameColors) {
 	timerForShoot;
 	originalLifePoint = lifePoint;
 	//gameWindow->InitPlayerOnWindow();
+	ennemiesDestroyBeforeLevelUp = 5;
+	baseEnnemiesDestroyBeforeLevelUp = ennemiesDestroyBeforeLevelUp;
+	delayOnShoot = 0.85f;
+	numberOfLevelUp = 5;
+	speedIncrease = 1;
 }
 
 void Player::PlayerLoop(GameState& gameState, GameWindow& window)
@@ -42,8 +47,8 @@ void Player::PlayerMovement()
 {
 	playerSpeed = tools::normalize(playerSpeed);
 	
-	playerSpeed.x *= PLAYER_SPEED;
-	playerSpeed.y *= PLAYER_SPEED;
+	playerSpeed.x *= PLAYER_SPEED + speedIncrease;
+	playerSpeed.y *= PLAYER_SPEED + speedIncrease;
 
 	playerRenderer.move(playerSpeed);
 	canon.move(playerSpeed);
@@ -112,7 +117,7 @@ void Player::InitPlayerPosition(float X, float Y)
 }
 
 void Player::Shoot() {
-	if (tools::IsDelayIsExceeded(timerForShoot, 0.7f)) {
+	if (tools::IsDelayIsExceeded(timerForShoot, delayOnShoot)) {
 		sf::Vector2f bulletPosition(
 			canon.getPosition().x - sin((3.14 / 180) * canon.getRotation()) * canon.getSize().y,
 			canon.getPosition().y + cos((3.14 / 180) * canon.getRotation()) * canon.getSize().y
@@ -126,7 +131,22 @@ void Player::Shoot() {
 void Player::UpdatePlayerLife(GameState& gameState)
 {
 		lifePoint--;
-		if (lifePoint >= 0) playerRenderer.setFillColor(gameColors.PlayerHitColors[lifePoint]);
+		if (lifePoint > 0) playerRenderer.setFillColor(gameColors.PlayerHitColors[lifePoint]);
 		else gameState = GameState::Menu;
 }
+
+void Player::ennemisDestroy()
+{
+	if (numberOfLevelUp > 0) {
+		ennemiesDestroyBeforeLevelUp--;
+		if (ennemiesDestroyBeforeLevelUp <= 0) {
+			ennemiesDestroyBeforeLevelUp = baseEnnemiesDestroyBeforeLevelUp;
+			delayOnShoot *= 0.65f;
+			speedIncrease += 1;
+			numberOfLevelUp--;
+		}
+	}
+}
+
+
 

@@ -15,15 +15,26 @@ class Player {
 public:
 	int lifePoint = 3;
 	int originalLifePoint;
+
+	float speedIncrease;
+
 	Input playerInput;
 	sf::RectangleShape canon;
 	sf::CircleShape playerRenderer;
 	sf::Vector2f playerSpeed;
+	const int PLAYER_SPEED = 2;
+
 	vector<Bullet*> magasin;
 	sf::Clock timerForShoot;
-	const int PLAYER_SPEED = 2;
+	float delayOnShoot;
+
+	int ennemiesDestroyBeforeLevelUp;
+	int baseEnnemiesDestroyBeforeLevelUp;
+	int numberOfLevelUp;
+
 	Player();
 	~Player();
+
 	void InitPlayer(GameColors& gameColors);
 	void PlayerLoop(GameState& gameState, GameWindow& window);
 	void PlayerMovement();
@@ -32,6 +43,7 @@ public:
 	void InitPlayerPosition(float x, float y);
 	void Shoot();
 	void UpdatePlayerLife(GameState& gameState);
+	void ennemisDestroy();
 };
 
 #endif

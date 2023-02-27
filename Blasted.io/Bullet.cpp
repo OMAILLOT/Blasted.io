@@ -6,7 +6,7 @@
 
 Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation)
 {
-	
+	delay = 1.5f;
 	bulletShape.setRadius(10);
 	bulletShape.setFillColor(gameColors.PlayerColor);
 	bulletShape.setOutlineColor(gameColors.playerOutline);
@@ -14,7 +14,6 @@ Bullet::Bullet(GameColors& gameColors, sf::Vector2f position, float rotation)
 	bulletShape.setOrigin(bulletShape.getRadius(), bulletShape.getRadius());
 	bulletShape.setPosition(position);
 	bulletShape.setRotation(rotation);
-	
 }
 
 Bullet::~Bullet()
