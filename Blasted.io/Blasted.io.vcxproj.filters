@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Structs">
+      <UniqueIdentifier>{a0877adc-b5c8-4eb8-92b3-a8852df07fc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Structs">
+      <UniqueIdentifier>{f9a3ad0d-8359-4df1-a35f-f6acf77f6a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI">
+      <UniqueIdentifier>{fc39e008-52f1-413d-a678-1518571a591e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\UI">
+      <UniqueIdentifier>{733c8b9c-13f1-4cfc-b08e-f1d8d7a0de34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Enums">
+      <UniqueIdentifier>{66dfe0a2-78d6-4fa2-a0ba-8c545178f971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ef9d1cb5-cc36-4d77-8fce-da23d52f0d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Singleton">
+      <UniqueIdentifier>{5079a2bf-faa4-484f-be8a-e388f0d35c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Ennemis">
+      <UniqueIdentifier>{6093ba4a-d81d-4fc2-bc43-477b7e689c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Singleton">
+      <UniqueIdentifier>{b5aaea33-f235-42c3-8204-84a6da0a3f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Ennemis">
+      <UniqueIdentifier>{b099d670-a836-4416-8f71-1445e0af9296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Class">
+      <UniqueIdentifier>{77111c1c-71b9-4426-ba02-08e9085ac510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Class">
+      <UniqueIdentifier>{74ebbf3e-ab5a-4ec8-bf30-55078b9b0dcf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Fichiers sources\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFont.cpp">
+      <Filter>Fichiers sources\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.h">
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="EnnemisManager.cpp">
+      <Filter>Fichiers sources\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="MeleeEnemi.cpp">
+      <Filter>Fichiers sources\Ennemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemis.cpp">
+      <Filter>Fichiers sources\Ennemis</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWindow.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Fichiers sources\Class</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Colors.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Fichiers d%27en-tête\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFont.h">
+      <Filter>Fichiers d%27en-tête\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="EnnemisManager.h">
+      <Filter>Fichiers d%27en-tête\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="MeleeEnemi.h">
+      <Filter>Fichiers d%27en-tête\Ennemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemis.h">
+      <Filter>Fichiers d%27en-tête\Ennemis</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWindow.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers d%27en-tête\Class</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Blasted.io.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
